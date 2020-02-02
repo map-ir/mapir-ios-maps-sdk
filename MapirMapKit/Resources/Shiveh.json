@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "name": "Raster Tiles",
+  "sources": {
+    "raster": {
+      "type": "raster",
+      "tiles": [
+        "https://map.ir/shiveh?bbox={bbox-epsg-3857}&service=WMS&version=1.1.0&EXCEPTIONS=application/vnd.ogc.se_inimage&request=GetMap&layers=Shiveh:Shiveh&width=256&height=256&srs=EPSG:3857&format=image/png"
+      ],
+      "tileSize": 256,
+      "maxzoom": 20
+    }
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "rgb(242,242,242)"
+      }
+    },
+    {
+      "id": "mapir",
+      "type": "raster",
+      "source": "raster",
+      "paint": {
+        "raster-fade-duration": 2000
+      },
+      "minzoom": 0,
+      "maxzoom": 20
+    }
+  ]
+}
