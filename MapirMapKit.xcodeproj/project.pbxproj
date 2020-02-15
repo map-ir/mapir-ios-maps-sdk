@@ -21,6 +21,10 @@
 		C02D5AD323A75E930046F6FB /* SHStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02D5AD223A75E930046F6FB /* SHStyleTests.swift */; };
 		C07E948623D44CF900E50236 /* SHSunManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C07E948423D44CF900E50236 /* SHSunManager.h */; };
 		C07E948723D44CF900E50236 /* SHSunManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C07E948523D44CF900E50236 /* SHSunManager.m */; };
+		C07F395A23F7E3B60017CC68 /* CodeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F395923F7E3B60017CC68 /* CodeMapViewController.swift */; };
+		C07F395C23F7F8730017CC68 /* AnnotationExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F395B23F7F8730017CC68 /* AnnotationExampleViewController.swift */; };
+		C07F395E23F7FFE40017CC68 /* PolylineExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F395D23F7FFE40017CC68 /* PolylineExampleViewController.swift */; };
+		C07F396023F7FFF50017CC68 /* PolygonExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F395F23F7FFF50017CC68 /* PolygonExampleViewController.swift */; };
 		C080427F23D33C1300279981 /* SHAutoDarkModeConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = C080427D23D33C1300279981 /* SHAutoDarkModeConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C080428023D33C1300279981 /* SHAutoDarkModeConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C080427E23D33C1300279981 /* SHAutoDarkModeConfiguration.m */; };
 		C090927C23A4B94A008C62D1 /* MapirMapKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C090927A23A4B94A008C62D1 /* MapirMapKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -34,7 +38,7 @@
 		C09092B223A4BDAF008C62D1 /* MapirAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C09092B123A4BDAF008C62D1 /* MapirAssets.xcassets */; };
 		C09092B523A4BE0D008C62D1 /* SHMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = C09092B323A4BE0D008C62D1 /* SHMapView.m */; };
 		C09092B623A4BE0D008C62D1 /* SHMapView.h in Headers */ = {isa = PBXBuildFile; fileRef = C09092B423A4BE0D008C62D1 /* SHMapView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C09092B823A4BE38008C62D1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09092B723A4BE38008C62D1 /* MapViewController.swift */; };
+		C09092B823A4BE38008C62D1 /* StoryboardMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09092B723A4BE38008C62D1 /* StoryboardMapViewController.swift */; };
 		C09092BB23A4BEBB008C62D1 /* SHStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = C09092B923A4BEBB008C62D1 /* SHStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C09092BC23A4BEBB008C62D1 /* SHStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = C09092BA23A4BEBB008C62D1 /* SHStyle.m */; };
 		C09092C123A4CC23008C62D1 /* SHURLProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C09092BF23A4CC23008C62D1 /* SHURLProtocol.h */; };
@@ -108,6 +112,10 @@
 		C02D5AD223A75E930046F6FB /* SHStyleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHStyleTests.swift; sourceTree = "<group>"; };
 		C07E948423D44CF900E50236 /* SHSunManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHSunManager.h; sourceTree = "<group>"; };
 		C07E948523D44CF900E50236 /* SHSunManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHSunManager.m; sourceTree = "<group>"; };
+		C07F395923F7E3B60017CC68 /* CodeMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeMapViewController.swift; sourceTree = "<group>"; };
+		C07F395B23F7F8730017CC68 /* AnnotationExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationExampleViewController.swift; sourceTree = "<group>"; };
+		C07F395D23F7FFE40017CC68 /* PolylineExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolylineExampleViewController.swift; sourceTree = "<group>"; };
+		C07F395F23F7FFF50017CC68 /* PolygonExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonExampleViewController.swift; sourceTree = "<group>"; };
 		C080427D23D33C1300279981 /* SHAutoDarkModeConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHAutoDarkModeConfiguration.h; sourceTree = "<group>"; };
 		C080427E23D33C1300279981 /* SHAutoDarkModeConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHAutoDarkModeConfiguration.m; sourceTree = "<group>"; };
 		C090927723A4B94A008C62D1 /* MapirMapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapirMapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,7 +137,7 @@
 		C09092B123A4BDAF008C62D1 /* MapirAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MapirAssets.xcassets; sourceTree = "<group>"; };
 		C09092B323A4BE0D008C62D1 /* SHMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMapView.m; sourceTree = "<group>"; };
 		C09092B423A4BE0D008C62D1 /* SHMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMapView.h; sourceTree = "<group>"; };
-		C09092B723A4BE38008C62D1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		C09092B723A4BE38008C62D1 /* StoryboardMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardMapViewController.swift; sourceTree = "<group>"; };
 		C09092B923A4BEBB008C62D1 /* SHStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHStyle.h; sourceTree = "<group>"; };
 		C09092BA23A4BEBB008C62D1 /* SHStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHStyle.m; sourceTree = "<group>"; };
 		C09092BF23A4CC23008C62D1 /* SHURLProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHURLProtocol.h; sourceTree = "<group>"; };
@@ -196,6 +204,17 @@
 			path = MapirMapKitTests;
 			sourceTree = "<group>";
 		};
+		C07F396223F825FD0017CC68 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C090929A23A4BC1C008C62D1 /* AppDelegate.swift */,
+				C090929C23A4BC1C008C62D1 /* SceneDelegate.swift */,
+				C09092FE23A57A0D008C62D1 /* FeaturesTableViewController.swift */,
+				C090930023A5859B008C62D1 /* Feature.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		C090926D23A4B94A008C62D1 = {
 			isa = PBXGroup;
 			children = (
@@ -254,11 +273,12 @@
 		C090929923A4BC1C008C62D1 /* Mapir MapKit Example */ = {
 			isa = PBXGroup;
 			children = (
-				C090929A23A4BC1C008C62D1 /* AppDelegate.swift */,
-				C090929C23A4BC1C008C62D1 /* SceneDelegate.swift */,
-				C09092B723A4BE38008C62D1 /* MapViewController.swift */,
-				C09092FE23A57A0D008C62D1 /* FeaturesTableViewController.swift */,
-				C090930023A5859B008C62D1 /* Feature.swift */,
+				C07F396223F825FD0017CC68 /* Supporting Files */,
+				C09092B723A4BE38008C62D1 /* StoryboardMapViewController.swift */,
+				C07F395923F7E3B60017CC68 /* CodeMapViewController.swift */,
+				C07F395B23F7F8730017CC68 /* AnnotationExampleViewController.swift */,
+				C07F395D23F7FFE40017CC68 /* PolylineExampleViewController.swift */,
+				C07F395F23F7FFF50017CC68 /* PolygonExampleViewController.swift */,
 				C09092A023A4BC1C008C62D1 /* Main.storyboard */,
 				C09092A523A4BC1D008C62D1 /* LaunchScreen.storyboard */,
 				C0C4BF8723CE193000025059 /* Tehran, Iran.gpx */,
@@ -535,11 +555,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C09092B823A4BE38008C62D1 /* MapViewController.swift in Sources */,
+				C09092B823A4BE38008C62D1 /* StoryboardMapViewController.swift in Sources */,
+				C07F395A23F7E3B60017CC68 /* CodeMapViewController.swift in Sources */,
 				C090929B23A4BC1C008C62D1 /* AppDelegate.swift in Sources */,
 				C090930123A5859B008C62D1 /* Feature.swift in Sources */,
 				C09092FF23A57A0D008C62D1 /* FeaturesTableViewController.swift in Sources */,
+				C07F395E23F7FFE40017CC68 /* PolylineExampleViewController.swift in Sources */,
+				C07F396023F7FFF50017CC68 /* PolygonExampleViewController.swift in Sources */,
 				C090929D23A4BC1C008C62D1 /* SceneDelegate.swift in Sources */,
+				C07F395C23F7F8730017CC68 /* AnnotationExampleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
