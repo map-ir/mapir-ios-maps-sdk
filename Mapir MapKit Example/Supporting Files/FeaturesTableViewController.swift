@@ -39,11 +39,13 @@ let features: [[Feature]] = [
     [
         Feature(
             title: "Auto Dark Mode",
-            description: "Dark mode based on sunrise and sunset time."
+            description: "Dark mode based on sunrise and sunset time.",
+            associatedViewController: AutoDarkModeExampleViewController.self
         ),
         Feature(
             title: "Auto Dark Mode With iOS",
-            description: "Updates map style based on iOS setting of dark mode and light mode."
+            description: "Updates map style based on iOS setting of dark mode and light mode.",
+            associatedViewController: AutoDarkModeUpdateWithOSExampleViewController.self
         )
     ]
 ]
@@ -100,6 +102,10 @@ class FeaturesTableViewController: UITableViewController {
                 target = PolylineExampleViewController()
             } else if vcType == PolygonExampleViewController.self {
                 target = PolygonExampleViewController()
+            } else if vcType == AutoDarkModeExampleViewController.self {
+                target = AutoDarkModeExampleViewController()
+            } else if vcType == AutoDarkModeUpdateWithOSExampleViewController.self {
+                target = AutoDarkModeUpdateWithOSExampleViewController()
             } else {
                 return
             }

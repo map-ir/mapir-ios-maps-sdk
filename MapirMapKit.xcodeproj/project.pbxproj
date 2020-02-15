@@ -25,6 +25,8 @@
 		C07F395C23F7F8730017CC68 /* AnnotationExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F395B23F7F8730017CC68 /* AnnotationExampleViewController.swift */; };
 		C07F395E23F7FFE40017CC68 /* PolylineExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F395D23F7FFE40017CC68 /* PolylineExampleViewController.swift */; };
 		C07F396023F7FFF50017CC68 /* PolygonExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F395F23F7FFF50017CC68 /* PolygonExampleViewController.swift */; };
+		C07F396423F826D10017CC68 /* AutoDarkModeExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F396323F826D10017CC68 /* AutoDarkModeExampleViewController.swift */; };
+		C07F396623F826DC0017CC68 /* AutoDarkModeUpdateWithOSExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F396523F826DC0017CC68 /* AutoDarkModeUpdateWithOSExampleViewController.swift */; };
 		C080427F23D33C1300279981 /* SHAutoDarkModeConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = C080427D23D33C1300279981 /* SHAutoDarkModeConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C080428023D33C1300279981 /* SHAutoDarkModeConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C080427E23D33C1300279981 /* SHAutoDarkModeConfiguration.m */; };
 		C090927C23A4B94A008C62D1 /* MapirMapKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C090927A23A4B94A008C62D1 /* MapirMapKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -116,6 +118,8 @@
 		C07F395B23F7F8730017CC68 /* AnnotationExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationExampleViewController.swift; sourceTree = "<group>"; };
 		C07F395D23F7FFE40017CC68 /* PolylineExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolylineExampleViewController.swift; sourceTree = "<group>"; };
 		C07F395F23F7FFF50017CC68 /* PolygonExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonExampleViewController.swift; sourceTree = "<group>"; };
+		C07F396323F826D10017CC68 /* AutoDarkModeExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoDarkModeExampleViewController.swift; sourceTree = "<group>"; };
+		C07F396523F826DC0017CC68 /* AutoDarkModeUpdateWithOSExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoDarkModeUpdateWithOSExampleViewController.swift; sourceTree = "<group>"; };
 		C080427D23D33C1300279981 /* SHAutoDarkModeConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHAutoDarkModeConfiguration.h; sourceTree = "<group>"; };
 		C080427E23D33C1300279981 /* SHAutoDarkModeConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHAutoDarkModeConfiguration.m; sourceTree = "<group>"; };
 		C090927723A4B94A008C62D1 /* MapirMapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapirMapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,6 +283,8 @@
 				C07F395B23F7F8730017CC68 /* AnnotationExampleViewController.swift */,
 				C07F395D23F7FFE40017CC68 /* PolylineExampleViewController.swift */,
 				C07F395F23F7FFF50017CC68 /* PolygonExampleViewController.swift */,
+				C07F396323F826D10017CC68 /* AutoDarkModeExampleViewController.swift */,
+				C07F396523F826DC0017CC68 /* AutoDarkModeUpdateWithOSExampleViewController.swift */,
 				C09092A023A4BC1C008C62D1 /* Main.storyboard */,
 				C09092A523A4BC1D008C62D1 /* LaunchScreen.storyboard */,
 				C0C4BF8723CE193000025059 /* Tehran, Iran.gpx */,
@@ -558,10 +564,12 @@
 				C09092B823A4BE38008C62D1 /* StoryboardMapViewController.swift in Sources */,
 				C07F395A23F7E3B60017CC68 /* CodeMapViewController.swift in Sources */,
 				C090929B23A4BC1C008C62D1 /* AppDelegate.swift in Sources */,
+				C07F396423F826D10017CC68 /* AutoDarkModeExampleViewController.swift in Sources */,
 				C090930123A5859B008C62D1 /* Feature.swift in Sources */,
 				C09092FF23A57A0D008C62D1 /* FeaturesTableViewController.swift in Sources */,
 				C07F395E23F7FFE40017CC68 /* PolylineExampleViewController.swift in Sources */,
 				C07F396023F7FFF50017CC68 /* PolygonExampleViewController.swift in Sources */,
+				C07F396623F826DC0017CC68 /* AutoDarkModeUpdateWithOSExampleViewController.swift in Sources */,
 				C090929D23A4BC1C008C62D1 /* SceneDelegate.swift in Sources */,
 				C07F395C23F7F8730017CC68 /* AnnotationExampleViewController.swift in Sources */,
 			);
