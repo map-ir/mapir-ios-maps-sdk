@@ -13,11 +13,10 @@ struct Feature {
     var title: String
     var description: String?
 
-    var task: ((SHMapView) -> ())?
+    var associatedViewController: UIViewController.Type = UIViewController.self
 }
 
 extension Feature: Hashable {
-
     static func == (lhs: Feature, rhs: Feature) -> Bool {
         lhs.hashValue == rhs.hashValue
     }
@@ -25,5 +24,4 @@ extension Feature: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(title)
     }
-
 }
