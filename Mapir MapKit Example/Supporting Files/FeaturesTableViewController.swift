@@ -38,6 +38,12 @@ let features: [[Feature]] = [
     ],
     [
         Feature(
+            title: "Annotation View",
+            associatedViewController: AnnotationViewExampleViewController.self
+        ),
+    ],
+    [
+        Feature(
             title: "Auto Dark Mode",
             description: "Dark mode based on sunrise and sunset time.",
             associatedViewController: AutoDarkModeExampleViewController.self
@@ -47,7 +53,7 @@ let features: [[Feature]] = [
             description: "Updates map style based on iOS setting of dark mode and light mode.",
             associatedViewController: AutoDarkModeUpdateWithOSExampleViewController.self
         )
-    ]
+    ],
 ]
 
 
@@ -106,6 +112,8 @@ class FeaturesTableViewController: UITableViewController {
                 target = AutoDarkModeExampleViewController()
             } else if vcType == AutoDarkModeUpdateWithOSExampleViewController.self {
                 target = AutoDarkModeUpdateWithOSExampleViewController()
+            } else if vcType == AnnotationViewExampleViewController.self {
+                target = AnnotationViewExampleViewController()
             } else {
                 return
             }
