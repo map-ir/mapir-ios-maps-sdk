@@ -41,6 +41,10 @@ let features: [[Feature]] = [
             title: "Annotation View",
             associatedViewController: AnnotationViewExampleViewController.self
         ),
+        Feature(
+            title: "Draggable Annotation View",
+            associatedViewController: DraggableAnnotationViewExampleViewController.self
+        ),
     ],
     [
         Feature(
@@ -114,6 +118,8 @@ class FeaturesTableViewController: UITableViewController {
                 target = AutoDarkModeUpdateWithOSExampleViewController()
             } else if vcType == AnnotationViewExampleViewController.self {
                 target = AnnotationViewExampleViewController()
+            } else if vcType == DraggableAnnotationViewExampleViewController.self {
+                target = DraggableAnnotationViewExampleViewController()
             } else {
                 return
             }

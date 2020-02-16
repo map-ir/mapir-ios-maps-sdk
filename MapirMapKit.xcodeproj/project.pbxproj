@@ -31,6 +31,8 @@
 		C07F396A23F832C80017CC68 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F396923F832C80017CC68 /* CustomAnnotationView.swift */; };
 		C080427F23D33C1300279981 /* SHAutoDarkModeConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = C080427D23D33C1300279981 /* SHAutoDarkModeConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C080428023D33C1300279981 /* SHAutoDarkModeConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C080427E23D33C1300279981 /* SHAutoDarkModeConfiguration.m */; };
+		C08080C423F928ED00913460 /* DraggableAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08080C323F928ED00913460 /* DraggableAnnotationView.swift */; };
+		C08080C723F9292700913460 /* DraggableAnnotationViewExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08080C623F9292700913460 /* DraggableAnnotationViewExampleViewController.swift */; };
 		C090927C23A4B94A008C62D1 /* MapirMapKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C090927A23A4B94A008C62D1 /* MapirMapKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C090929B23A4BC1C008C62D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090929A23A4BC1C008C62D1 /* AppDelegate.swift */; };
 		C090929D23A4BC1C008C62D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090929C23A4BC1C008C62D1 /* SceneDelegate.swift */; };
@@ -126,6 +128,8 @@
 		C07F396923F832C80017CC68 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		C080427D23D33C1300279981 /* SHAutoDarkModeConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHAutoDarkModeConfiguration.h; sourceTree = "<group>"; };
 		C080427E23D33C1300279981 /* SHAutoDarkModeConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHAutoDarkModeConfiguration.m; sourceTree = "<group>"; };
+		C08080C323F928ED00913460 /* DraggableAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableAnnotationView.swift; sourceTree = "<group>"; };
+		C08080C623F9292700913460 /* DraggableAnnotationViewExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableAnnotationViewExampleViewController.swift; sourceTree = "<group>"; };
 		C090927723A4B94A008C62D1 /* MapirMapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapirMapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C090927A23A4B94A008C62D1 /* MapirMapKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapirMapKit.h; sourceTree = "<group>"; };
 		C090928223A4BA73008C62D1 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
@@ -232,6 +236,15 @@
 			path = "Annotation View Example";
 			sourceTree = "<group>";
 		};
+		C08080C523F928F500913460 /* Draggable Annotation View Example */ = {
+			isa = PBXGroup;
+			children = (
+				C08080C623F9292700913460 /* DraggableAnnotationViewExampleViewController.swift */,
+				C08080C323F928ED00913460 /* DraggableAnnotationView.swift */,
+			);
+			path = "Draggable Annotation View Example";
+			sourceTree = "<group>";
+		};
 		C090926D23A4B94A008C62D1 = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +310,7 @@
 				C07F395D23F7FFE40017CC68 /* PolylineExampleViewController.swift */,
 				C07F395F23F7FFF50017CC68 /* PolygonExampleViewController.swift */,
 				C07F396B23F8352B0017CC68 /* Annotation View Example */,
+				C08080C523F928F500913460 /* Draggable Annotation View Example */,
 				C07F396323F826D10017CC68 /* AutoDarkModeExampleViewController.swift */,
 				C07F396523F826DC0017CC68 /* AutoDarkModeUpdateWithOSExampleViewController.swift */,
 				C09092A023A4BC1C008C62D1 /* Main.storyboard */,
@@ -575,8 +589,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C08080C723F9292700913460 /* DraggableAnnotationViewExampleViewController.swift in Sources */,
 				C09092B823A4BE38008C62D1 /* StoryboardMapViewController.swift in Sources */,
 				C07F395A23F7E3B60017CC68 /* CodeMapViewController.swift in Sources */,
+				C08080C423F928ED00913460 /* DraggableAnnotationView.swift in Sources */,
 				C090929B23A4BC1C008C62D1 /* AppDelegate.swift in Sources */,
 				C07F396423F826D10017CC68 /* AutoDarkModeExampleViewController.swift in Sources */,
 				C090930123A5859B008C62D1 /* Feature.swift in Sources */,
