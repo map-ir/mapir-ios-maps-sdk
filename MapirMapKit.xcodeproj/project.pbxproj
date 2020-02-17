@@ -33,6 +33,8 @@
 		C080428023D33C1300279981 /* SHAutoDarkModeConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C080427E23D33C1300279981 /* SHAutoDarkModeConfiguration.m */; };
 		C08080C423F928ED00913460 /* DraggableAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08080C323F928ED00913460 /* DraggableAnnotationView.swift */; };
 		C08080C723F9292700913460 /* DraggableAnnotationViewExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08080C623F9292700913460 /* DraggableAnnotationViewExampleViewController.swift */; };
+		C08080C923F93BB100913460 /* CustomCalloutViewExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08080C823F93BB100913460 /* CustomCalloutViewExampleViewController.swift */; };
+		C08080CB23F93C3300913460 /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08080CA23F93C3300913460 /* CustomCalloutView.swift */; };
 		C090927C23A4B94A008C62D1 /* MapirMapKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C090927A23A4B94A008C62D1 /* MapirMapKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C090929B23A4BC1C008C62D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090929A23A4BC1C008C62D1 /* AppDelegate.swift */; };
 		C090929D23A4BC1C008C62D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090929C23A4BC1C008C62D1 /* SceneDelegate.swift */; };
@@ -130,6 +132,8 @@
 		C080427E23D33C1300279981 /* SHAutoDarkModeConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHAutoDarkModeConfiguration.m; sourceTree = "<group>"; };
 		C08080C323F928ED00913460 /* DraggableAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableAnnotationView.swift; sourceTree = "<group>"; };
 		C08080C623F9292700913460 /* DraggableAnnotationViewExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableAnnotationViewExampleViewController.swift; sourceTree = "<group>"; };
+		C08080C823F93BB100913460 /* CustomCalloutViewExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalloutViewExampleViewController.swift; sourceTree = "<group>"; };
+		C08080CA23F93C3300913460 /* CustomCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
 		C090927723A4B94A008C62D1 /* MapirMapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapirMapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C090927A23A4B94A008C62D1 /* MapirMapKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapirMapKit.h; sourceTree = "<group>"; };
 		C090928223A4BA73008C62D1 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
@@ -245,6 +249,15 @@
 			path = "Draggable Annotation View Example";
 			sourceTree = "<group>";
 		};
+		C08080CC23F93C4400913460 /* Custom Callout View Example */ = {
+			isa = PBXGroup;
+			children = (
+				C08080C823F93BB100913460 /* CustomCalloutViewExampleViewController.swift */,
+				C08080CA23F93C3300913460 /* CustomCalloutView.swift */,
+			);
+			path = "Custom Callout View Example";
+			sourceTree = "<group>";
+		};
 		C090926D23A4B94A008C62D1 = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +324,7 @@
 				C07F395F23F7FFF50017CC68 /* PolygonExampleViewController.swift */,
 				C07F396B23F8352B0017CC68 /* Annotation View Example */,
 				C08080C523F928F500913460 /* Draggable Annotation View Example */,
+				C08080CC23F93C4400913460 /* Custom Callout View Example */,
 				C07F396323F826D10017CC68 /* AutoDarkModeExampleViewController.swift */,
 				C07F396523F826DC0017CC68 /* AutoDarkModeUpdateWithOSExampleViewController.swift */,
 				C09092A023A4BC1C008C62D1 /* Main.storyboard */,
@@ -601,7 +615,9 @@
 				C07F395E23F7FFE40017CC68 /* PolylineExampleViewController.swift in Sources */,
 				C07F396A23F832C80017CC68 /* CustomAnnotationView.swift in Sources */,
 				C07F396023F7FFF50017CC68 /* PolygonExampleViewController.swift in Sources */,
+				C08080C923F93BB100913460 /* CustomCalloutViewExampleViewController.swift in Sources */,
 				C07F396623F826DC0017CC68 /* AutoDarkModeUpdateWithOSExampleViewController.swift in Sources */,
+				C08080CB23F93C3300913460 /* CustomCalloutView.swift in Sources */,
 				C090929D23A4BC1C008C62D1 /* SceneDelegate.swift in Sources */,
 				C07F395C23F7F8730017CC68 /* AnnotationExampleViewController.swift in Sources */,
 			);

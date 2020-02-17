@@ -48,6 +48,12 @@ let features: [[Feature]] = [
     ],
     [
         Feature(
+            title: "Custom Callout View",
+            associatedViewController: CustomCalloutViewExampleViewController.self
+        ),
+    ],
+    [
+        Feature(
             title: "Auto Dark Mode",
             description: "Dark mode based on sunrise and sunset time.",
             associatedViewController: AutoDarkModeExampleViewController.self
@@ -120,6 +126,8 @@ class FeaturesTableViewController: UITableViewController {
                 target = AnnotationViewExampleViewController()
             } else if vcType == DraggableAnnotationViewExampleViewController.self {
                 target = DraggableAnnotationViewExampleViewController()
+            } else if vcType == CustomCalloutViewExampleViewController.self {
+                target = CustomCalloutViewExampleViewController()
             } else {
                 return
             }
