@@ -38,6 +38,13 @@ let features: [[Feature]] = [
     ],
     [
         Feature(
+            title: "Multiple Shapes",
+            description: "Shows Shiraz metro line and stations using MGLShapeSource and MGLStyleLayer.",
+            associatedViewController: MultipleShapesExampleViewController.self
+        ),
+    ],
+    [
+        Feature(
             title: "Annotation View",
             associatedViewController: AnnotationViewExampleViewController.self
         ),
@@ -88,6 +95,7 @@ class FeaturesTableViewController: UITableViewController {
             cell = tableView.dequeueReusableCell(withIdentifier: "DetailedFeatureCell", for: indexPath)
             cell.textLabel?.text = selectedFeature.title
             cell.detailTextLabel?.text = desc
+            cell.detailTextLabel?.numberOfLines = 0
         } else {
             cell = tableView.dequeueReusableCell(withIdentifier: "DefaultFeatureCell", for: indexPath)
             cell.textLabel?.text = selectedFeature.title
@@ -128,6 +136,8 @@ class FeaturesTableViewController: UITableViewController {
                 target = DraggableAnnotationViewExampleViewController()
             } else if vcType == CustomCalloutViewExampleViewController.self {
                 target = CustomCalloutViewExampleViewController()
+            } else if vcType == MultipleShapesExampleViewController.self {
+                target = MultipleShapesExampleViewController()
             } else {
                 return
             }

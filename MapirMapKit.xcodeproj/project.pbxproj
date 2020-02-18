@@ -60,6 +60,8 @@
 		C090930123A5859B008C62D1 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090930023A5859B008C62D1 /* Feature.swift */; };
 		C09A5DCE23D704FE0057A977 /* SHAutoDarkModeConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A5DCD23D704FE0057A977 /* SHAutoDarkModeConfigurationTests.swift */; };
 		C09E5D3B23A6C4C300C7D189 /* Mosalla-Tehran.geojson in Resources */ = {isa = PBXBuildFile; fileRef = C09E5D3A23A6C4C300C7D189 /* Mosalla-Tehran.geojson */; };
+		C0C02A6623FA9BBF007FF702 /* ShirazMetro.geojson in Resources */ = {isa = PBXBuildFile; fileRef = C0C02A6523FA9BBF007FF702 /* ShirazMetro.geojson */; };
+		C0C02A6823FAA146007FF702 /* MultipleShapesExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C02A6723FAA146007FF702 /* MultipleShapesExampleViewController.swift */; };
 		C0C4BF8523CE0FD100025059 /* SHSunriseSet.h in Headers */ = {isa = PBXBuildFile; fileRef = C0C4BF8323CE0FD100025059 /* SHSunriseSet.h */; };
 		C0C4BF8623CE0FD100025059 /* SHSunriseSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C4BF8423CE0FD100025059 /* SHSunriseSet.m */; };
 		C0C4BF8823CE193100025059 /* Tehran, Iran.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C0C4BF8723CE193000025059 /* Tehran, Iran.gpx */; };
@@ -168,6 +170,8 @@
 		C090930023A5859B008C62D1 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		C09A5DCD23D704FE0057A977 /* SHAutoDarkModeConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHAutoDarkModeConfigurationTests.swift; sourceTree = "<group>"; };
 		C09E5D3A23A6C4C300C7D189 /* Mosalla-Tehran.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Mosalla-Tehran.geojson"; sourceTree = "<group>"; };
+		C0C02A6523FA9BBF007FF702 /* ShirazMetro.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = ShirazMetro.geojson; sourceTree = "<group>"; };
+		C0C02A6723FAA146007FF702 /* MultipleShapesExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleShapesExampleViewController.swift; sourceTree = "<group>"; };
 		C0C4BF8323CE0FD100025059 /* SHSunriseSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHSunriseSet.h; sourceTree = "<group>"; };
 		C0C4BF8423CE0FD100025059 /* SHSunriseSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHSunriseSet.m; sourceTree = "<group>"; };
 		C0C4BF8723CE193000025059 /* Tehran, Iran.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Tehran, Iran.gpx"; sourceTree = "<group>"; };
@@ -325,6 +329,7 @@
 				C07F396B23F8352B0017CC68 /* Annotation View Example */,
 				C08080C523F928F500913460 /* Draggable Annotation View Example */,
 				C08080CC23F93C4400913460 /* Custom Callout View Example */,
+				C0C02A6923FAA14F007FF702 /* Multiple Shapes Example */,
 				C07F396323F826D10017CC68 /* AutoDarkModeExampleViewController.swift */,
 				C07F396523F826DC0017CC68 /* AutoDarkModeUpdateWithOSExampleViewController.swift */,
 				C09092A023A4BC1C008C62D1 /* Main.storyboard */,
@@ -375,6 +380,15 @@
 				C09092D323A553C5008C62D1 /* Shiveh.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		C0C02A6923FAA14F007FF702 /* Multiple Shapes Example */ = {
+			isa = PBXGroup;
+			children = (
+				C0C02A6723FAA146007FF702 /* MultipleShapesExampleViewController.swift */,
+				C0C02A6523FA9BBF007FF702 /* ShirazMetro.geojson */,
+			);
+			path = "Multiple Shapes Example";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -519,6 +533,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0C02A6623FA9BBF007FF702 /* ShirazMetro.geojson in Resources */,
 				C09092A723A4BC1D008C62D1 /* LaunchScreen.storyboard in Resources */,
 				C0C4BF8823CE193100025059 /* Tehran, Iran.gpx in Resources */,
 				C09E5D3B23A6C4C300C7D189 /* Mosalla-Tehran.geojson in Resources */,
@@ -620,6 +635,7 @@
 				C08080CB23F93C3300913460 /* CustomCalloutView.swift in Sources */,
 				C090929D23A4BC1C008C62D1 /* SceneDelegate.swift in Sources */,
 				C07F395C23F7F8730017CC68 /* AnnotationExampleViewController.swift in Sources */,
+				C0C02A6823FAA146007FF702 /* MultipleShapesExampleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
