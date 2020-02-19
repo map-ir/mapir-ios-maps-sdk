@@ -42,6 +42,11 @@ let features: [[Feature]] = [
             description: "Shows Shiraz metro line and stations using MGLShapeSource and MGLStyleLayer.",
             associatedViewController: MultipleShapesExampleViewController.self
         ),
+        Feature(
+            title: "Multiple Images",
+            description: "Shows some of Iran peaks on the map using MGLShapeSource and MGLStyleLayer.",
+            associatedViewController: MultipleImagesExampleViewController.self
+        ),
     ],
     [
         Feature(
@@ -138,6 +143,8 @@ class FeaturesTableViewController: UITableViewController {
                 target = CustomCalloutViewExampleViewController()
             } else if vcType == MultipleShapesExampleViewController.self {
                 target = MultipleShapesExampleViewController()
+            } else if vcType == MultipleImagesExampleViewController.self {
+                target = MultipleImagesExampleViewController()
             } else {
                 return
             }

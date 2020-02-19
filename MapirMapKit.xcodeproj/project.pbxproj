@@ -67,6 +67,9 @@
 		C0C4BF8823CE193100025059 /* Tehran, Iran.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C0C4BF8723CE193000025059 /* Tehran, Iran.gpx */; };
 		C0F188D923A7693A0083C5BA /* BundleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F188D823A7693A0083C5BA /* BundleTests.swift */; };
 		C0F188DB23A785570083C5BA /* SHAccountManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F188DA23A785570083C5BA /* SHAccountManagerTests.swift */; };
+		C0F33D0523FBC21300B5753F /* MultipleImagesExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F33D0423FBC21300B5753F /* MultipleImagesExampleViewController.swift */; };
+		C0F33D0723FBC24E00B5753F /* Peaks.geojson in Resources */ = {isa = PBXBuildFile; fileRef = C0F33D0623FBC24E00B5753F /* Peaks.geojson */; };
+		C0F33D0A23FBC33D00B5753F /* PeakIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0F33D0923FBC33D00B5753F /* PeakIcons.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +180,9 @@
 		C0C4BF8723CE193000025059 /* Tehran, Iran.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Tehran, Iran.gpx"; sourceTree = "<group>"; };
 		C0F188D823A7693A0083C5BA /* BundleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleTests.swift; sourceTree = "<group>"; };
 		C0F188DA23A785570083C5BA /* SHAccountManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHAccountManagerTests.swift; sourceTree = "<group>"; };
+		C0F33D0423FBC21300B5753F /* MultipleImagesExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleImagesExampleViewController.swift; sourceTree = "<group>"; };
+		C0F33D0623FBC24E00B5753F /* Peaks.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = Peaks.geojson; sourceTree = "<group>"; };
+		C0F33D0923FBC33D00B5753F /* PeakIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PeakIcons.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +336,7 @@
 				C08080C523F928F500913460 /* Draggable Annotation View Example */,
 				C08080CC23F93C4400913460 /* Custom Callout View Example */,
 				C0C02A6923FAA14F007FF702 /* Multiple Shapes Example */,
+				C0F33D0823FBC25800B5753F /* Multiple Image Example */,
 				C07F396323F826D10017CC68 /* AutoDarkModeExampleViewController.swift */,
 				C07F396523F826DC0017CC68 /* AutoDarkModeUpdateWithOSExampleViewController.swift */,
 				C09092A023A4BC1C008C62D1 /* Main.storyboard */,
@@ -389,6 +396,16 @@
 				C0C02A6523FA9BBF007FF702 /* ShirazMetro.geojson */,
 			);
 			path = "Multiple Shapes Example";
+			sourceTree = "<group>";
+		};
+		C0F33D0823FBC25800B5753F /* Multiple Image Example */ = {
+			isa = PBXGroup;
+			children = (
+				C0F33D0423FBC21300B5753F /* MultipleImagesExampleViewController.swift */,
+				C0F33D0923FBC33D00B5753F /* PeakIcons.xcassets */,
+				C0F33D0623FBC24E00B5753F /* Peaks.geojson */,
+			);
+			path = "Multiple Image Example";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -534,7 +551,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0C02A6623FA9BBF007FF702 /* ShirazMetro.geojson in Resources */,
+				C0F33D0723FBC24E00B5753F /* Peaks.geojson in Resources */,
 				C09092A723A4BC1D008C62D1 /* LaunchScreen.storyboard in Resources */,
+				C0F33D0A23FBC33D00B5753F /* PeakIcons.xcassets in Resources */,
 				C0C4BF8823CE193100025059 /* Tehran, Iran.gpx in Resources */,
 				C09E5D3B23A6C4C300C7D189 /* Mosalla-Tehran.geojson in Resources */,
 				C09092A423A4BC1D008C62D1 /* Assets.xcassets in Resources */,
@@ -623,6 +642,7 @@
 				C07F395A23F7E3B60017CC68 /* CodeMapViewController.swift in Sources */,
 				C08080C423F928ED00913460 /* DraggableAnnotationView.swift in Sources */,
 				C090929B23A4BC1C008C62D1 /* AppDelegate.swift in Sources */,
+				C0F33D0523FBC21300B5753F /* MultipleImagesExampleViewController.swift in Sources */,
 				C07F396423F826D10017CC68 /* AutoDarkModeExampleViewController.swift in Sources */,
 				C090930123A5859B008C62D1 /* Feature.swift in Sources */,
 				C07F396823F832670017CC68 /* AnnotationViewExampleViewController.swift in Sources */,

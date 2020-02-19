@@ -1,0 +1,140 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "کوه دماوند",
+                "elevation": 5609,
+                "name_en": "Damavand"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    52.1096123,
+                    35.9549208
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "کرکس",
+                "elevation": 3895,
+                "name_en": "Karkas"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    51.7997813,
+                    33.4553805
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "قله بینالود",
+                "elevation": 3211,
+                "name_en": "Mount Binalud"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    58.8454207,
+                    36.4277231
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "علم‌کوه",
+                "elevation": 4850,
+                "name_en": "Alam-Kouh"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    50.96231,
+                    36.37579
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "دنا",
+                "elevation": 4409,
+                "name_en": "Dena"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    51.4361135,
+                    30.9510646
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "زردکوه",
+                "elevation": 4221,
+                "name_en": "Zard Kuh"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    50.0773489,
+                    32.3650134
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "سبلان",
+                "elevation": 4811,
+                "name_en": "Sabalan"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    47.8375368,
+                    38.2678905
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "یخچال",
+                "elevation": 3580,
+                "name_en": "Yakhchal"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    48.486787,
+                    34.663926
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "کوه بزمان",
+                "elevation": 3490,
+                "name_en": "Bazman"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    60.0102317,
+                    28.0776886
+                ]
+            }
+        }
+    ]
+}

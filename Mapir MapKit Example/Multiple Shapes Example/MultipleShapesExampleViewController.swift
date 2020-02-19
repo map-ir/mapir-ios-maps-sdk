@@ -50,7 +50,7 @@ class MultipleShapesExampleViewController: UIViewController, MGLMapViewDelegate 
         addMetroLine(from: shapeSource, to: style)
         addMetroStations(from: shapeSource, to: style)
 
-        // Recenters the map view to zoom over the first 10 stations of Tehran Metro line 1.
+        // Recenters the map view to zoom over the Shiraz.
         let center = CLLocationCoordinate2D(latitude: 29.606595, longitude: 52.529067)
         mapView.setCenter(center, zoomLevel: 11, direction: 320, animated: true)
     }
@@ -104,5 +104,3 @@ class MultipleShapesExampleViewController: UIViewController, MGLMapViewDelegate 
         style.addLayer(pointsLayer)
     }
 }
-
-
