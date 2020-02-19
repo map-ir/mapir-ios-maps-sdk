@@ -13,6 +13,8 @@ struct Feature {
     var title: String
     var description: String?
 
+    var iconName: String?
+
     var associatedViewController: UIViewController.Type = UIViewController.self
 }
 
