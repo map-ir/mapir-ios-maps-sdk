@@ -10,6 +10,7 @@
 #import "SHURLProtocol.h"
 #import "UIImage+Extension.h"
 #import "SHSunManager.h"
+#import "SHMapViewDelegate.h"
 
 NSString * const SHMapLogoImageName = @"map-logo";
 NSString * const SHCompassImageName = @"compass";
@@ -95,6 +96,8 @@ typedef NS_ENUM(NSUInteger, SHMapUserInterfaceStyle) {
 
 - (void)setupWithStyleURL:(NSURL *)styleURL
 {
+    [self setupObservers];
+
     if (!styleURL)
     {
         styleURL = SHStyle.vernaStyleURL;
@@ -126,9 +129,21 @@ typedef NS_ENUM(NSUInteger, SHMapUserInterfaceStyle) {
 {
     [_attributionLabel removeObserver:self forKeyPath:@"hidden"];
     [_attributionLabel removeObserver:self forKeyPath:@"alpha"];
+
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
-// MARK: Key-Value Observing
+// MARK: Setup Observers
+
+- (void)setupObservers
+{
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(didReceiveUnauthorizedFromResponse:)
+                                               name:SHAccountManager.unauthorizedNotification
+                                             object:nil];
+}
+
+// MARK: Observing
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
@@ -153,7 +168,22 @@ typedef NS_ENUM(NSUInteger, SHMapUserInterfaceStyle) {
     }
 }
 
-// MARK: - Setup new assets
+- (void)didReceiveUnauthorizedFromResponse:(NSNotification *)notif
+{
+    if (self.delegate)
+    {
+        if ([self.delegate conformsToProtocol:@protocol(SHMapViewDelegate)])
+        {
+            id<SHMapViewDelegate> delegate = (id<SHMapViewDelegate>)self.delegate;
+            if ([delegate respondsToSelector:@selector(mapView:didReceiveUnauthorizedError:)])
+            {
+                [delegate mapView:self didReceiveUnauthorizedError:(NSError *)notif.object];
+            }
+        }
+    }
+}
+
+// MARK: Setup new assets
 
 + (void)preInitSetup
 {

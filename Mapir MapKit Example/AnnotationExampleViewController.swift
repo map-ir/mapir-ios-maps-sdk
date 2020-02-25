@@ -9,7 +9,7 @@
 import UIKit
 import MapirMapKit
 
-class AnnotationExampleViewController: UIViewController, MGLMapViewDelegate {
+class AnnotationExampleViewController: UIViewController, SHMapViewDelegate {
 
     var mapView: SHMapView!
 

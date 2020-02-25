@@ -19,6 +19,7 @@ FOUNDATION_EXPORT const unsigned char MapirMapKitVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <MapirMapKit/PublicHeader.h>
 
 #import "SHMapView.h"
+#import "SHMapViewDelegate.h"
 #import "SHStyle.h"
 #import "SHAccountManager.h"
 #import "SHAutoDarkModeConfiguration.h"

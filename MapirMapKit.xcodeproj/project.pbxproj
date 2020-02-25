@@ -15,6 +15,7 @@
 		C00492C923AE137D00BD609E /* MapboxMobileEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C00492C723AE137D00BD609E /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C00492CA23AE139400BD609E /* MapboxMobileEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C00492C723AE137D00BD609E /* MapboxMobileEvents.framework */; };
 		C00492CB23AE139400BD609E /* MapboxMobileEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C00492C723AE137D00BD609E /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C022210E24051988004AC0B9 /* SHMapViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = C022210D24051988004AC0B9 /* SHMapViewDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C02D5AC923A75A0C0046F6FB /* SHMapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02D5AC823A75A0C0046F6FB /* SHMapViewTests.swift */; };
 		C02D5ACB23A75A0C0046F6FB /* MapirMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C090927723A4B94A008C62D1 /* MapirMapKit.framework */; platformFilter = ios; };
 		C02D5AD123A75A160046F6FB /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C090929023A4BBBF008C62D1 /* Mapbox.framework */; platformFilter = ios; };
@@ -117,6 +118,7 @@
 
 /* Begin PBXFileReference section */
 		C00492C723AE137D00BD609E /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapboxMobileEvents.framework; path = Carthage/Build/iOS/MapboxMobileEvents.framework; sourceTree = "<group>"; };
+		C022210D24051988004AC0B9 /* SHMapViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHMapViewDelegate.h; sourceTree = "<group>"; };
 		C02D5AC623A75A0C0046F6FB /* MapirMapKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapirMapKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C02D5AC823A75A0C0046F6FB /* SHMapViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHMapViewTests.swift; sourceTree = "<group>"; };
 		C02D5ACA23A75A0C0046F6FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 			children = (
 				C09092B423A4BE0D008C62D1 /* SHMapView.h */,
 				C09092B323A4BE0D008C62D1 /* SHMapView.m */,
+				C022210D24051988004AC0B9 /* SHMapViewDelegate.h */,
 				C09092B923A4BEBB008C62D1 /* SHStyle.h */,
 				C09092BA23A4BEBB008C62D1 /* SHStyle.m */,
 				C09092C323A4E7F7008C62D1 /* SHAccountManager.h */,
@@ -413,6 +416,7 @@
 				C09092BB23A4BEBB008C62D1 /* SHStyle.h in Headers */,
 				C09092C123A4CC23008C62D1 /* SHURLProtocol.h in Headers */,
 				C090927C23A4B94A008C62D1 /* MapirMapKit.h in Headers */,
+				C022210E24051988004AC0B9 /* SHMapViewDelegate.h in Headers */,
 				C09092C523A4E7F7008C62D1 /* SHAccountManager.h in Headers */,
 				C0C4BF8523CE0FD100025059 /* SHSunriseSet.h in Headers */,
 				C080427F23D33C1300279981 /* SHAutoDarkModeConfiguration.h in Headers */,
