@@ -53,7 +53,8 @@ class AnnotationViewExampleViewController: UIViewController, MGLMapViewDelegate 
 
     // 2: Return value of this function is going to specify the view that each point
     // annotation will be shown with it, on the map. You can use a static
-    // MGLAnnotationImage using `func mapView(_:imageFor:)`.
+    // MGLAnnotationImage using `func mapView(_:imageFor:)`. If the return value
+    // becomes nil, default annotation view will be used.
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
 
         // 3: In this example, we want to be sure of that the annotations we update, are of

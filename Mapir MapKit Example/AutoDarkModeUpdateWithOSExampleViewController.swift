@@ -38,8 +38,8 @@ class AutoDarkModeUpdateWithOSExampleViewController: UIViewController {
         mapView.autoDarkModeConfiguration = autoDarkModeConfig
 
         // 3: In the end, set autoDarkMode property to updateWithOS. After that, map's
-        // style will be updated whenever user updates interface style of iOS.
+        // style will be updated when interface style of iOS updates. (No matter it's user
+        // initiated or it's done by iOS.)
         mapView.autoDarkMode = .updateWithOS
     }
-    
 }

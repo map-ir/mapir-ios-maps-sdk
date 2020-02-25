@@ -72,7 +72,7 @@ class DraggableAnnotationViewExampleViewController: UIViewController, MGLMapView
             annotationView = DraggableAnnotationView(reuseIdentifier: reuseID, size: CGSize(width: 40.0, height: 40.0))
         }
 
-        // 8: Return the annotation
+        // 7: Return the annotation
         return annotationView
     }
 

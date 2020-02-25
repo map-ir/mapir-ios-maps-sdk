@@ -37,7 +37,7 @@ class CustomCalloutViewExampleViewController: UIViewController, MGLMapViewDelega
         ]
 
         // 1: Create and add point annotations to the map. In another part we will update
-        // the view associated with them.
+        // the callout view associated with them.
         var pointAnnotations: [MGLPointAnnotation] = []
         for place in places {
             let point = MGLPointAnnotation()
@@ -79,4 +79,3 @@ class CustomCalloutViewExampleViewController: UIViewController, MGLMapViewDelega
         mapView.deselectAnnotation(annotation, animated: true)
     }
 }
-

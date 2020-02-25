@@ -40,5 +40,4 @@ class CodeMapViewController: UIViewController {
         // 6: Finally, add the mapView to view controller's view propery as a subview.
         view.addSubview(mapView)
     }
-
 }

@@ -43,27 +43,25 @@ class AnnotationExampleViewController: UIViewController, MGLMapViewDelegate {
         var annotations: [MGLPointAnnotation] = []
         for coordinate in places {
 
-            // 3: Create a point annotaion and set its coordinate and title.
+            // 3: Create a point annotation and set its coordinate and title.
             let newAnnotation = MGLPointAnnotation()
             newAnnotation.coordinate = coordinate
             newAnnotation.title = "\(coordinate.latitude), \(coordinate.longitude)"
 
-            // 4: Add the annoation to the array.
+            // 4: Add the annotation to the array.
             annotations.append(newAnnotation)
         }
 
-        // 5: Add array of annoations to the mapView.
+        // 5: Add array of annotations to the mapView.
         mapView.addAnnotations(annotations)
 
         // Recenter the map view to zoom over the point annotations.
         let center = CLLocationCoordinate2D(latitude: 35.706219, longitude: 51.400794)
         mapView.setCenter(center, zoomLevel: 13, animated: true)
-
     }
 
     // 6: Permit the map view to show callouts when user taps an annotation.
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         true
     }
-
 }

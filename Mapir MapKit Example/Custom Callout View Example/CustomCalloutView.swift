@@ -88,7 +88,7 @@ class CustomCalloutView: UIView, MGLCalloutView {
         // 13: Add self as subview of view.
         view.addSubview(self)
 
-        // 14: Prepare the label by customizing and resizing.
+        // 14: Prepare the button by customizing and resizing.
         button.setTitle(representedObject.title ?? "", for: .normal)
         button.sizeToFit()
 
@@ -163,5 +163,4 @@ class CustomCalloutView: UIView, MGLCalloutView {
             delegate?.calloutViewTapped?(self)
         }
     }
-
 }

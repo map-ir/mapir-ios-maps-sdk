@@ -39,8 +39,8 @@ class MultipleImagesExampleViewController: UIViewController, MGLMapViewDelegate 
         style.setImage(UIImage(named: "very high")!, forName: "very_high")
 
         // 2: There is a GeoJSON file in the application bundle which contains information
-        // about Shiraz metro line 1 and its stations. In this example we will show the
-        // line and stations on the map.
+        // about some peaks in Iran. In this example we will show the line and stations on
+        // the map.
         guard let peaksOfIranGeoJSON = Bundle.main.path(forResource: "Peaks", ofType: "geojson") else { return }
         let url = URL(fileURLWithPath: peaksOfIranGeoJSON)
 
@@ -88,17 +88,19 @@ class MultipleImagesExampleViewController: UIViewController, MGLMapViewDelegate 
             NSExpression(format: "CAST(%@, 'NSString')", NSExpression(forKeyPath: "elevation"))
         )
 
-        // 9: Customize other properties of the symbol layer as you wish.
+        // 9: You should specify the font to be one of available fonts in the style. Map.ir
+        // uses "IranSans-Noto" at this moment. In future othe fonts may be added. You can
+        // also add your own fonts to the style.
         symbolLayer.textFontNames = NSExpression(forConstantValue: ["IranSans-Noto"])
         symbolLayer.textFontSize = NSExpression(forConstantValue: 9)
+
+        // 10: Customize other properties of the symbol layer as you wish.
         symbolLayer.textAllowsOverlap = NSExpression(forConstantValue: true)
         symbolLayer.textColor = NSExpression(forConstantValue: UIColor.black)
         symbolLayer.textAnchor = NSExpression(forConstantValue: "top")
         symbolLayer.textTranslation = NSExpression(forConstantValue: NSValue(cgVector: CGVector(dx: 0, dy: 12)))
 
-        // 10: Finally add the layer to the style.
+        // 11: Finally add the layer to the style.
         style.addLayer(symbolLayer)
-
     }
-
 }

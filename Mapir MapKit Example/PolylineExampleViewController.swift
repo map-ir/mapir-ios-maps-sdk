@@ -70,7 +70,6 @@ class PolylineExampleViewController: UIViewController, MGLMapViewDelegate {
     // 5: Use this function from delegate methods to specify a line color for shape
     // annotations shown on the map.
     func mapView(_ mapView: MGLMapView, strokeColorForShapeAnnotation annotation: MGLShape) -> UIColor {
-        return UIColor(red: 218 / 255, green: 44 / 255, blue: 56 / 266, alpha: 1.0)
+        return UIColor(red: 218 / 255, green: 44 / 255, blue: 56 / 255, alpha: 1.0)
     }
-
 }

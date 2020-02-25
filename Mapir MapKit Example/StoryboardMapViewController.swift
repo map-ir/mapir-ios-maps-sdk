@@ -8,7 +8,6 @@
 
 import UIKit
 import MapirMapKit
-import CoreLocation
 
 // 0: Before start, go to your storyboard and from library, add a UIView to your
 // view controller. then select it and open identity inspector. Then choose

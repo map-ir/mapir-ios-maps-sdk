@@ -27,7 +27,8 @@ class PolygonExampleViewController: UIViewController, MGLMapViewDelegate {
         view.addSubview(mapView)
     }
 
-    // 1: 
+    // 1: First, we wait for the map to load completely. Doing so will ensure that
+    // adding new annotations to the map will also show them on the map.
     func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
 
         // Coordinates of Tehran University area. We are going to show a polygon that
@@ -85,13 +86,12 @@ class PolygonExampleViewController: UIViewController, MGLMapViewDelegate {
     // 5: Use this function from delegate methods to set a fill color for polygon
     // annotations shown on the map.
     func mapView(_ mapView: MGLMapView, fillColorForPolygonAnnotation annotation: MGLPolygon) -> UIColor {
-        return UIColor(red: 10 / 255, green: 36 / 255, blue: 99 / 266, alpha: 0.3)
+        return UIColor(red: 10 / 255, green: 36 / 255, blue: 99 / 255, alpha: 0.3)
     }
 
     // 6: Use this function from delegate methods to specify a line color for shape
     // annotations shown on the map.
     func mapView(_ mapView: MGLMapView, strokeColorForShapeAnnotation annotation: MGLShape) -> UIColor {
-        return UIColor(red: 10 / 255, green: 36 / 255, blue: 99 / 266, alpha: 1.0)
+        return UIColor(red: 10 / 255, green: 36 / 255, blue: 99 / 255, alpha: 1.0)
     }
-
 }
