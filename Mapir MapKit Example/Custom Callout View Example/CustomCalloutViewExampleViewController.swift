@@ -9,7 +9,7 @@
 import UIKit
 import MapirMapKit
 
-class CustomCalloutViewExampleViewController: UIViewController, MGLMapViewDelegate, MGLCalloutViewDelegate {
+class CustomCalloutViewExampleViewController: UIViewController, SHMapViewDelegate, MGLCalloutViewDelegate {
 
     var mapView: SHMapView!
 

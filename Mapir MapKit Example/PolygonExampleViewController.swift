@@ -9,7 +9,7 @@
 import UIKit
 import MapirMapKit
 
-class PolygonExampleViewController: UIViewController, MGLMapViewDelegate {
+class PolygonExampleViewController: UIViewController, SHMapViewDelegate {
 
     var mapView: SHMapView!
 

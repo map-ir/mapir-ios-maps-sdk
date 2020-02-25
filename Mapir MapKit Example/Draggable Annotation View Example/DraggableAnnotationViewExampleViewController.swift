@@ -9,7 +9,7 @@
 import UIKit
 import MapirMapKit
 
-class DraggableAnnotationViewExampleViewController: UIViewController, MGLMapViewDelegate {
+class DraggableAnnotationViewExampleViewController: UIViewController, SHMapViewDelegate {
 
     var mapView: SHMapView!
 

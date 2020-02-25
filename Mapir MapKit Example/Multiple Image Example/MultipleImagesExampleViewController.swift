@@ -9,7 +9,7 @@
 import UIKit
 import MapirMapKit
 
-class MultipleImagesExampleViewController: UIViewController, MGLMapViewDelegate {
+class MultipleImagesExampleViewController: UIViewController, SHMapViewDelegate {
 
     var mapView: SHMapView!
 

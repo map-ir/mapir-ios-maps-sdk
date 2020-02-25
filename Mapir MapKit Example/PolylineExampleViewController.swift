@@ -9,7 +9,7 @@
 import UIKit
 import MapirMapKit
 
-class PolylineExampleViewController: UIViewController, MGLMapViewDelegate {
+class PolylineExampleViewController: UIViewController, SHMapViewDelegate {
 
     var mapView: SHMapView!
 
