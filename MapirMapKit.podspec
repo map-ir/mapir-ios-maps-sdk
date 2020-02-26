@@ -3,7 +3,7 @@ Pod::Spec.new do |spec|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   spec.name         = "MapirMapKit"
-  spec.version      = "1.0.0"
+  spec.version      = "3.0.0"
   spec.summary      = "Map.ir Maps SDK for iOS based on mapbox-gl-native."
 
   spec.description  = <<-DESC
@@ -12,7 +12,7 @@ Pod::Spec.new do |spec|
                          all with Map.ir tiles and datasets.
                    DESC
 
-  spec.homepage     = "http://map.ir/MapirMapKit"
+  spec.homepage     = "https://support.map.ir/developers/ios/"
 
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -35,7 +35,7 @@ Pod::Spec.new do |spec|
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
-  spec.source       = { :git => "https://github.com/Mr-Alirezaa/mapir-ios-maps-sdk.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/map-ir/mapir-ios-maps-sdk.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

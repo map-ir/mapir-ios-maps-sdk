@@ -7,12 +7,13 @@ Map.ir Map Kit is an interactive map based on Mapbox framework, providing Map.ir
 - Customizable map and gestures.
 - Interface similar to Apple's MapKit.
 - Support for Interface builder.
+- Automatic switch to dark mode with sunset/sunrise ro when the system's theme updates.
 - **All with Map.ir vector and raster tiles.**
 
 
 ## Example
 
-To see the example application, first run `git clone https://github.com/mr-alirezaa/mapir-ios-maps-sdk` in terminal. Open `MapirMapKit.xcodeproj`. Build and run `Mapir MapKit Example` target.
+To see the example application, first run `git clone https://github.com/map-ir/mapir-ios-maps-sdk` in terminal. Open `MapirMapKit.xcodeproj`. Build and run `Mapir MapKit Example` target. Every view controller demonstrates a feature of the map. More examples will be available soon. 
 
 
 ## Installation
@@ -33,7 +34,7 @@ pod 'MapirMapKit'
 To integrate Map.ir Map Kit into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "Mr-Alirezaa/mapir-ios-maps-sdk"
+github "map-ir/mapir-ios-maps-sdk"
 ```
 
 Run `carthage update` to build the frameworks and drag the built `MapirLiveTracker.framework` and `Mapbox.framework` into your Xcode project. 
@@ -90,7 +91,7 @@ class ViewController: UIViewController {
     ...
 }
 
-extension ViewController: MGLMapViewDelegate {
+extension ViewController: SHMapViewDelegate {
     // Define delegate methods here.
 }
 ```
@@ -98,7 +99,7 @@ extension ViewController: MGLMapViewDelegate {
 **In your view controller's header file:**
 
 ```objective-c
-@interface ViewController : UIViewController <MGLMapViewDelegate>
+@interface ViewController : UIViewController <SHMapViewDelegate>
 
 @property (nonatomic, strong) SHMapView *mapView;
 
