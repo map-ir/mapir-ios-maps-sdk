@@ -39,76 +39,36 @@ static NSURLSession *_session = nil;
 
 + (NSString *)sdkIdentifier
 {
-    if (_sdkIdentifer == nil)
+    if (!_sdkIdentifer)
     {
         NSMutableArray *sdkIdentifierComponents = [NSMutableArray array];
 
-        NSString *systemName = @"Darwin";
-#if TARGET_OS_IPHONE
-        systemName = @"iOS";
-#elif TARGET_OS_MAC
-        systemName = @"macOS";
-#elif TARGET_OS_WATCH
-        systemName = @"watchOS";
-#elif TARGET_OS_TV
-        systemName = @"tvOS";
-#endif
-#if TARGET_OS_SIMULATOR
-        systemName = [systemName stringByAppendingString:@" Simulator"];
-#endif
-        NSString *systemVersion = nil;
-        if ([NSProcessInfo instancesRespondToSelector:@selector(operatingSystemVersion)]) {
-            NSOperatingSystemVersion osVersion = [NSProcessInfo processInfo].operatingSystemVersion;
-            systemVersion = [NSString stringWithFormat:@"%ld.%ld.%ld",
-                             (long)osVersion.majorVersion, (long)osVersion.minorVersion, (long)osVersion.patchVersion];
-        }
+        NSString *systemName = [SHURLProtocol systemName];
+
+        NSString *systemVersion = [SHURLProtocol systemVersion];
         NSString *osString;
         if (systemVersion) {
             osString = [NSString stringWithFormat:@"%@/%@", systemName, systemVersion];
         }
 
-        NSString *cpu = nil;
-#if TARGET_CPU_X86
-        cpu = @"x86";
-#elif TARGET_CPU_X86_64
-        cpu = @"x86_64";
-#elif TARGET_CPU_ARM
-        cpu = @"arm";
-#elif TARGET_CPU_ARM64
-        cpu = @"arm64";
-#endif
-        if (cpu) {
-            [osString stringByAppendingFormat:@"(%@)", cpu];
+        NSString *cpu = [SHURLProtocol cpuArchitecture];
+        if (cpu)
+        {
+            osString = [osString stringByAppendingFormat:@"(%@)", cpu];
         }
         if (osString)
         {
             [sdkIdentifierComponents addObject:osString];
         }
 
-        NSBundle *sdkBundle = [NSBundle bundleForClass:[SHURLProtocol class]];
-        if (sdkBundle)
+        NSString *sdkBundleInfo = [SHURLProtocol sdkBundleInfo];
+        if (sdkBundleInfo)
         {
-            NSString *sdkName = sdkBundle.infoDictionary[@"CFBundleName"];
-            if (!sdkName)
-            {
-                sdkName = sdkBundle.infoDictionary[@"CFBundleIdnetifier"];
-            }
-            NSString *version = sdkBundle.infoDictionary[@"CFBundleShortVersionString"];
-            [sdkIdentifierComponents addObject:[NSString stringWithFormat:@"%@/%@", sdkName, version]];
+            [sdkIdentifierComponents addObject:sdkBundleInfo];
         }
 
-        NSBundle *appBundle = [NSBundle mainBundle];
-        if (appBundle) {
-            NSString *appName = appBundle.infoDictionary[@"CFBundleName"];
-            if (!appName)
-            {
-                appName = appBundle.infoDictionary[@"CFBundleIdentifier"];
-            }
-            NSString *version = appBundle.infoDictionary[@"CFBundleShortVersionString"];
-            [sdkIdentifierComponents addObject:[NSString stringWithFormat:@"%@/%@", appName, version]];
-        } else {
-            [sdkIdentifierComponents addObject:[NSProcessInfo processInfo].processName];
-        }
+        NSString *appBundleInfo = [SHURLProtocol appBundleInfo];
+        [sdkIdentifierComponents addObject:appBundleInfo];
 
         _sdkIdentifer = [sdkIdentifierComponents componentsJoinedByString:@"-"];
     }
@@ -117,73 +77,28 @@ static NSURLSession *_session = nil;
 
 + (NSString *)userAgent
 {
-
-    if (_userAgent == nil)
+    if (!_userAgent)
     {
         NSMutableArray *userAgentComponents = [NSMutableArray array];
 
-        NSBundle *appBundle = [NSBundle mainBundle];
-        if (appBundle) {
-            NSString *appName = appBundle.infoDictionary[@"CFBundleName"];
-            if (!appName)
-            {
-                appName = appBundle.infoDictionary[@"CFBundleIdentifier"];
-            }
-            NSString *version = appBundle.infoDictionary[@"CFBundleShortVersionString"];
-            [userAgentComponents addObject:[NSString stringWithFormat:@"%@/%@", appName, version]];
-        } else {
-            [userAgentComponents addObject:[NSProcessInfo processInfo].processName];
+        NSString *appBundleInfo = [SHURLProtocol appBundleInfo];
+        [userAgentComponents addObject:appBundleInfo];
+
+        NSString *sdkBundleInfo = [SHURLProtocol sdkBundleInfo];
+        if (sdkBundleInfo) {
+            [userAgentComponents addObject:sdkBundleInfo];
         }
 
-        NSBundle *sdkBundle = [NSBundle bundleForClass:[SHURLProtocol class]];
-        if (sdkBundle)
+        NSString *systemName = [SHURLProtocol systemName];
+        NSString *systemVersion = [SHURLProtocol systemVersion];
+        if (systemVersion)
         {
-            NSString *sdkName = sdkBundle.infoDictionary[@"CFBundleName"];
-            if (!sdkName)
-            {
-                sdkName = sdkBundle.infoDictionary[@"CFBundleIdnetifier"];
-            }
-            NSString *version = sdkBundle.infoDictionary[@"CFBundleShortVersionString"];
-            [userAgentComponents addObject:[NSString stringWithFormat:@"%@/%@", sdkName, version]];
-        }
-
-        // Avoid %s here because it inserts hidden bidirectional markers on macOS when the system
-        // language is set to a right-to-left language.
-
-        NSString *systemName = @"Darwin";
-#if TARGET_OS_IPHONE
-        systemName = @"iOS";
-#elif TARGET_OS_MAC
-        systemName = @"macOS";
-#elif TARGET_OS_WATCH
-        systemName = @"watchOS";
-#elif TARGET_OS_TV
-        systemName = @"tvOS";
-#endif
-#if TARGET_OS_SIMULATOR
-        systemName = [systemName stringByAppendingString:@" Simulator"];
-#endif
-        NSString *systemVersion = nil;
-        if ([NSProcessInfo instancesRespondToSelector:@selector(operatingSystemVersion)]) {
-            NSOperatingSystemVersion osVersion = [NSProcessInfo processInfo].operatingSystemVersion;
-            systemVersion = [NSString stringWithFormat:@"%ld.%ld.%ld",
-                             (long)osVersion.majorVersion, (long)osVersion.minorVersion, (long)osVersion.patchVersion];
-        }
-        if (systemVersion) {
             [userAgentComponents addObject:[NSString stringWithFormat:@"%@/%@", systemName, systemVersion]];
         }
 
-        NSString *cpu = nil;
-#if TARGET_CPU_X86
-        cpu = @"x86";
-#elif TARGET_CPU_X86_64
-        cpu = @"x86_64";
-#elif TARGET_CPU_ARM
-        cpu = @"arm";
-#elif TARGET_CPU_ARM64
-        cpu = @"arm64";
-#endif
-        if (cpu) {
+        NSString *cpu = [SHURLProtocol cpuArchitecture];
+        if (cpu)
+        {
             [userAgentComponents addObject:[NSString stringWithFormat:@"(%@)", cpu]];
         }
 
@@ -271,5 +186,84 @@ static NSURLSession *_session = nil;
     self.activeTask = nil;
 }
 
+// MARK: OS and App info
+
++ (NSString *)appBundleInfo
+{
+    NSBundle *appBundle = [NSBundle mainBundle];
+    if (appBundle) {
+        NSString *appName = appBundle.infoDictionary[@"CFBundleName"];
+        if (!appName)
+        {
+            appName = appBundle.infoDictionary[@"CFBundleIdentifier"];
+        }
+        NSString *version = appBundle.infoDictionary[@"CFBundleShortVersionString"];
+        return [NSString stringWithFormat:@"%@/%@", appName, version];
+    } else {
+        return [NSProcessInfo processInfo].processName;
+    }
+}
+
++ (NSString *)sdkBundleInfo
+{
+    NSBundle *sdkBundle = [NSBundle bundleForClass:[SHURLProtocol class]];
+    if (sdkBundle)
+    {
+        NSString *sdkName = sdkBundle.infoDictionary[@"CFBundleName"];
+        if (!sdkName)
+        {
+            sdkName = sdkBundle.infoDictionary[@"CFBundleIdnetifier"];
+        }
+        NSString *version = sdkBundle.infoDictionary[@"CFBundleShortVersionString"];
+        return [NSString stringWithFormat:@"%@/%@", sdkName, version];
+    }
+    return nil;
+}
+
++ (NSString *)systemName
+{
+    // Avoid %s here because it inserts hidden bidirectional markers on macOS when the
+    // system language is set to a right-to-left language.
+    NSString *systemName = @"Darwin";
+#if TARGET_OS_IPHONE
+    systemName = @"iOS";
+#elif TARGET_OS_MAC
+    systemName = @"macOS";
+#elif TARGET_OS_WATCH
+    systemName = @"watchOS";
+#elif TARGET_OS_TV
+    systemName = @"tvOS";
+#endif
+#if TARGET_OS_SIMULATOR
+    systemName = [systemName stringByAppendingString:@" Simulator"];
+#endif
+    return systemName;
+}
+
++ (NSString *)systemVersion
+{
+    NSString *systemVersion = nil;
+    if ([NSProcessInfo instancesRespondToSelector:@selector(operatingSystemVersion)]) {
+        NSOperatingSystemVersion osVersion = [NSProcessInfo processInfo].operatingSystemVersion;
+        systemVersion = [NSString stringWithFormat:@"%ld.%ld.%ld",
+                         (long)osVersion.majorVersion, (long)osVersion.minorVersion, (long)osVersion.patchVersion];
+    }
+    return systemVersion;
+}
+
++ (NSString *)cpuArchitecture
+{
+    NSString *cpu = nil;
+#if TARGET_CPU_X86
+    cpu = @"x86";
+#elif TARGET_CPU_X86_64
+    cpu = @"x86_64";
+#elif TARGET_CPU_ARM
+    cpu = @"arm";
+#elif TARGET_CPU_ARM64
+    cpu = @"arm64";
+#endif
+    return cpu;
+}
 
 @end
