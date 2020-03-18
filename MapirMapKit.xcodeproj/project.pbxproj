@@ -123,6 +123,7 @@
 		C02D5AC823A75A0C0046F6FB /* SHMapViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHMapViewTests.swift; sourceTree = "<group>"; };
 		C02D5ACA23A75A0C0046F6FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C02D5AD223A75E930046F6FB /* SHStyleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHStyleTests.swift; sourceTree = "<group>"; };
+		C076FB072422300600C60BC4 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		C07E948423D44CF900E50236 /* SHSunManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHSunManager.h; sourceTree = "<group>"; };
 		C07E948523D44CF900E50236 /* SHSunManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHSunManager.m; sourceTree = "<group>"; };
 		C07F395923F7E3B60017CC68 /* CodeMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeMapViewController.swift; sourceTree = "<group>"; };
@@ -308,6 +309,7 @@
 				C090928623A4BA73008C62D1 /* LICENSE */,
 				C090928323A4BA73008C62D1 /* MapirMapKit.podspec */,
 				C090928423A4BA73008C62D1 /* Readme.md */,
+				C076FB072422300600C60BC4 /* CHANGELOG.md */,
 			);
 			name = Configs;
 			sourceTree = "<group>";
@@ -876,7 +878,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 3.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ir.map.MapirMapKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -906,7 +908,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 3.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ir.map.MapirMapKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
