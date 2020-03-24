@@ -130,6 +130,9 @@ typedef NS_ENUM(NSUInteger, SHMapUserInterfaceStyle) {
     [_attributionLabel removeObserver:self forKeyPath:@"hidden"];
     [_attributionLabel removeObserver:self forKeyPath:@"alpha"];
 
+    [_attributionContainer removeObserver:self forKeyPath:@"hidden"];
+    [_attributionContainer removeObserver:self forKeyPath:@"alpha"];
+
     [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
@@ -150,17 +153,24 @@ typedef NS_ENUM(NSUInteger, SHMapUserInterfaceStyle) {
                         change:(NSDictionary *)change
                        context:(void *)context
 {
-    if ([keyPath isEqualToString:@"hidden"] && object == _attributionLabel)
+    NSString *message = @"Attribution of Map.ir and OpenStreetMap shouldn't be hidden or unreadable unless noticed in another section of the application.";
+    if ([keyPath isEqualToString:@"hidden"] && (object == _attributionLabel || object == _attributionContainer))
     {
         NSNumber *hidden = change[NSKeyValueChangeNewKey];
         BOOL newHidden = [hidden boolValue];
-        [self.attributionContainer setHidden:newHidden];
+        if (newHidden == true)
+        {
+            NSLog(@"%@", message);
+        }
     }
-    else if ([keyPath isEqualToString:@"alpha"] && object == _attributionLabel)
+    else if ([keyPath isEqualToString:@"alpha"] && (object == _attributionLabel || object == _attributionContainer))
     {
         NSNumber *alpha = change[NSKeyValueChangeNewKey];
         CGFloat newAlpha = [alpha floatValue];
-        [self.attributionContainer setAlpha:newAlpha];
+        if (newAlpha != 1)
+        {
+            NSLog(@"%@", message);
+        }
     }
     else
     {
@@ -258,8 +268,19 @@ typedef NS_ENUM(NSUInteger, SHMapUserInterfaceStyle) {
 
     // Observers
 
-    [self.attributionLabel addObserver:self forKeyPath:@"hidden" options:NSKeyValueObservingOptionNew context:nil];
-    [self.attributionLabel addObserver:self forKeyPath:@"alpha" options:NSKeyValueObservingOptionNew context:nil];
+    [self.attributionLabel addObserver:self
+                            forKeyPath:@"hidden"
+                               options:NSKeyValueObservingOptionNew context:nil];
+    [self.attributionLabel addObserver:self
+                            forKeyPath:@"alpha"
+                               options:NSKeyValueObservingOptionNew context:nil];
+
+    [self.attributionContainer addObserver:self
+                                forKeyPath:@"hidden"
+                                   options:NSKeyValueObservingOptionNew context:nil];
+    [self.attributionContainer addObserver:self
+                                forKeyPath:@"alpha"
+                                   options:NSKeyValueObservingOptionNew context:nil];
 }
 
 // MARK: Logo
@@ -449,6 +470,7 @@ typedef NS_ENUM(NSUInteger, SHMapUserInterfaceStyle) {
         [self updateLogoAndAttributionAndCompassForCurrentStyle];
     }
 
+    // If user updates the style, auto dark mode turns off.
     if (!self.internalStyleUpdateFlag && self.autoDarkMode != SHAutoDarkModeOff)
     {
         self.autoDarkMode = SHAutoDarkModeOff;
@@ -486,7 +508,6 @@ typedef NS_ENUM(NSUInteger, SHMapUserInterfaceStyle) {
     {
         return true;
     }
-
     return false;
 }
 
