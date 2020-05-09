@@ -11,6 +11,7 @@
 #import "UIImage+Extension.h"
 #import "SHSunManager.h"
 #import "SHMapViewDelegate.h"
+#import "SHEventManager.h"
 
 NSString * const SHMapLogoImageName = @"map-logo";
 NSString * const SHCompassImageName = @"compass";
@@ -37,6 +38,8 @@ typedef NS_ENUM(NSUInteger, SHMapUserInterfaceStyle) {
 @property (nonatomic, assign, readwrite) BOOL internalStyleUpdateFlag;
 
 @property (nonatomic, strong) SHSunManager *sunManager;
+
+@property (nonatomic, strong) SHEventManager *eventManager;
 
 @end
 
@@ -76,7 +79,7 @@ typedef NS_ENUM(NSUInteger, SHMapUserInterfaceStyle) {
 - (instancetype)initWithFrame:(CGRect)frame styleURL:(NSURL *)styleURL
 {
     [SHMapView preInitSetup];
-    self = [super initWithFrame:frame];
+    self = [super initWithFrame:frame styleURL:styleURL];
     if (self) {
         [self setupWithStyleURL:styleURL];
     }
@@ -103,10 +106,11 @@ typedef NS_ENUM(NSUInteger, SHMapUserInterfaceStyle) {
         styleURL = SHStyle.vernaStyleURL;
     }
 
-    self.internalStyleUpdateFlag = true;
     self.autoDarkModeConfiguration = SHAutoDarkModeConfiguration.defaultConfiguration;
-    self.styleURL = styleURL;
 
+    self.eventManager = [[SHEventManager alloc] init];
+    [self.eventManager sendLoadEventForStyle:styleURL];
+    [self.eventManager setMapView:self];
 
     self.sunManager = [[SHSunManager alloc] initWithLocation:self.autoDarkModeConfiguration.location];
     self.sunManager.delegate = self;
@@ -465,16 +469,22 @@ typedef NS_ENUM(NSUInteger, SHMapUserInterfaceStyle) {
 
     [super setStyleURL:styleURL];
 
-    if (![oldStyleURL.absoluteString isEqualToString:styleURL.absoluteString])
-    {
-        [self updateLogoAndAttributionAndCompassForCurrentStyle];
-    }
+    if (oldStyleURL) {
+        if (![oldStyleURL.absoluteString isEqualToString:styleURL.absoluteString])
+        {
+            [self updateLogoAndAttributionAndCompassForCurrentStyle];
+        }
 
-    // If user updates the style, auto dark mode turns off.
-    if (!self.internalStyleUpdateFlag && self.autoDarkMode != SHAutoDarkModeOff)
-    {
-        self.autoDarkMode = SHAutoDarkModeOff;
-        NSLog(@"Auto dark mode is turned off, because you updated style.");
+        // If user updates the style, auto dark mode turns off.
+        if (!self.internalStyleUpdateFlag && self.autoDarkMode != SHAutoDarkModeOff)
+        {
+            self.autoDarkMode = SHAutoDarkModeOff;
+            NSLog(@"Auto dark mode is turned off, because you updated style.");
+
+            if (self.eventManager) {
+                [self.eventManager sendLoadEventForStyle:styleURL];
+            }
+        }
     }
 
     self.internalStyleUpdateFlag = false;

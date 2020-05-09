@@ -46,8 +46,7 @@ static NSURL *_styleURL_hyrcania = nil;
 {
     if (!_styleURL_hyrcania)
     {
-        NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
-        _styleURL_hyrcania = [NSURL URLWithString:[currentBundle pathForResource:@"Shiveh" ofType:@"json"]];
+        _styleURL_hyrcania = [[NSBundle bundleForClass:[self class]] URLForResource:@"Shiveh" withExtension:@"json"];
     }
     return _styleURL_hyrcania;
 }

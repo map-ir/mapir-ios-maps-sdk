@@ -64,6 +64,8 @@
 		C0C02A6823FAA146007FF702 /* MultipleShapesExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C02A6723FAA146007FF702 /* MultipleShapesExampleViewController.swift */; };
 		C0C4BF8523CE0FD100025059 /* SHSunriseSet.h in Headers */ = {isa = PBXBuildFile; fileRef = C0C4BF8323CE0FD100025059 /* SHSunriseSet.h */; };
 		C0C4BF8623CE0FD100025059 /* SHSunriseSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C4BF8423CE0FD100025059 /* SHSunriseSet.m */; };
+		C0DBE42C2460099500542D45 /* SHEventManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C0DBE42A2460099500542D45 /* SHEventManager.h */; };
+		C0DBE42D2460099500542D45 /* SHEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0DBE42B2460099500542D45 /* SHEventManager.m */; };
 		C0F188D923A7693A0083C5BA /* BundleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F188D823A7693A0083C5BA /* BundleTests.swift */; };
 		C0F188DB23A785570083C5BA /* SHAccountManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F188DA23A785570083C5BA /* SHAccountManagerTests.swift */; };
 		C0F33D0523FBC21300B5753F /* MultipleImagesExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F33D0423FBC21300B5753F /* MultipleImagesExampleViewController.swift */; };
@@ -177,6 +179,8 @@
 		C0C02A6723FAA146007FF702 /* MultipleShapesExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleShapesExampleViewController.swift; sourceTree = "<group>"; };
 		C0C4BF8323CE0FD100025059 /* SHSunriseSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHSunriseSet.h; sourceTree = "<group>"; };
 		C0C4BF8423CE0FD100025059 /* SHSunriseSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHSunriseSet.m; sourceTree = "<group>"; };
+		C0DBE42A2460099500542D45 /* SHEventManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHEventManager.h; sourceTree = "<group>"; };
+		C0DBE42B2460099500542D45 /* SHEventManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHEventManager.m; sourceTree = "<group>"; };
 		C0F188D823A7693A0083C5BA /* BundleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleTests.swift; sourceTree = "<group>"; };
 		C0F188DA23A785570083C5BA /* SHAccountManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHAccountManagerTests.swift; sourceTree = "<group>"; };
 		C0F33D0423FBC21300B5753F /* MultipleImagesExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleImagesExampleViewController.swift; sourceTree = "<group>"; };
@@ -352,6 +356,8 @@
 			children = (
 				C09092B423A4BE0D008C62D1 /* SHMapView.h */,
 				C09092B323A4BE0D008C62D1 /* SHMapView.m */,
+				C0DBE42A2460099500542D45 /* SHEventManager.h */,
+				C0DBE42B2460099500542D45 /* SHEventManager.m */,
 				C022210D24051988004AC0B9 /* SHMapViewDelegate.h */,
 				C09092B923A4BEBB008C62D1 /* SHStyle.h */,
 				C09092BA23A4BEBB008C62D1 /* SHStyle.m */,
@@ -424,6 +430,7 @@
 				C080427F23D33C1300279981 /* SHAutoDarkModeConfiguration.h in Headers */,
 				C07E948623D44CF900E50236 /* SHSunManager.h in Headers */,
 				C09092B623A4BE0D008C62D1 /* SHMapView.h in Headers */,
+				C0DBE42C2460099500542D45 /* SHEventManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,7 +502,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = Map;
 				TargetAttributes = {
 					C02D5AC523A75A0C0046F6FB = {
@@ -628,6 +635,7 @@
 				C07E948723D44CF900E50236 /* SHSunManager.m in Sources */,
 				C0C4BF8623CE0FD100025059 /* SHSunriseSet.m in Sources */,
 				C080428023D33C1300279981 /* SHAutoDarkModeConfiguration.m in Sources */,
+				C0DBE42D2460099500542D45 /* SHEventManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -851,6 +859,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -878,7 +887,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.1.0;
+				MARKETING_VERSION = 3.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ir.map.MapirMapKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -908,7 +917,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.1.0;
+				MARKETING_VERSION = 3.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ir.map.MapirMapKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
