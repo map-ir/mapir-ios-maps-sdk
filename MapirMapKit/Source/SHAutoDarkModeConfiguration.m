@@ -12,19 +12,14 @@
 
 @implementation SHAutoDarkModeConfiguration
 
-static SHAutoDarkModeConfiguration *_defaultConfiguration;
-
 + (SHAutoDarkModeConfiguration *)defaultConfiguration
 {
-    if (!_defaultConfiguration)
-    {
-        CLLocation *tehran = [[CLLocation alloc] initWithLatitude:35.6892 longitude:51.3890];
-        _defaultConfiguration = [[SHAutoDarkModeConfiguration alloc] initWithLightStyleURL:SHStyle.vernaStyleURL
-                                                                              darkStyleURL:SHStyle.carmaniaStyleURL
-                                                                                  location:tehran];
-    }
+    CLLocation *tehran = [[CLLocation alloc] initWithLatitude:35.6892 longitude:51.3890];
+    SHAutoDarkModeConfiguration *conf = [[SHAutoDarkModeConfiguration alloc] initWithLightStyleURL:SHStyle.vernaStyleURL
+                                                                                      darkStyleURL:SHStyle.carmaniaStyleURL
+                                                                                          location:tehran];
 
-    return _defaultConfiguration.copy;
+    return conf;
 }
 
 + (SHAutoDarkModeConfiguration *)defaultConfigurationWithLocation:(CLLocation *)location

@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// the framwork.
 @property (class, nonatomic, readonly) NSURL *carmaniaStyleURL;
 
-/// Verna is Map's default raster style. this returns url for Hircania style.
+/// Hyrcania is Map's default raster style. this returns url for Hyrcania style.
 ///
 /// Map.ir raster style is created by Map.ir team. It is not recommended to use this
 /// style over vector style.
