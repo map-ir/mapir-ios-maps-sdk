@@ -3,7 +3,7 @@ Pod::Spec.new do |spec|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   spec.name         = "MapirMapKit"
-  spec.version      = "3.1.0"
+  spec.version      = "3.2.0"
   spec.summary      = "Map.ir Maps SDK for iOS based on mapbox-gl-native."
 
   spec.description  = <<-DESC
@@ -54,6 +54,6 @@ Pod::Spec.new do |spec|
 
   spec.requires_arc = true
 
-  spec.dependency "Mapbox-iOS-SDK", "~> 5.7.0"
+  spec.dependency "Mapbox-iOS-SDK", "~> 5.9.0"
 
 end
