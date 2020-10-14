@@ -95,3 +95,6 @@ playground.xcworkspace
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.gitignore.io/api/swift,xcode,macos,swiftpm,carthage,cocoapods,objective-c
+
+# NETRC
+.netrc
