@@ -2,7 +2,7 @@ import Foundation
 
 extension URLRequest {
     mutating func addMapirSpecificHeaders() {
-        setValue(MapirAccountManager.shared.accessToken, forHTTPHeaderField: "x-api-key")
+        setValue(MapirAccountManager.shared.apiKey, forHTTPHeaderField: "x-api-key")
         setValue(URLRequest.sdkIdentifer, forHTTPHeaderField: "MapIr-SDK")
         setValue(URLRequest.userAgent, forHTTPHeaderField: "User-Agent")
     }
@@ -44,7 +44,7 @@ extension URLRequest {
 
     private static let sdkBundleInfo: String = {
         let sdkName: String = "MapirMapKit"
-        let sdkBuild: String = sdkVersion
+        let sdkBuild: String = MapirMapKit.sdkVersion
         return "\(sdkName)/\(sdkBuild)"
     }()
 

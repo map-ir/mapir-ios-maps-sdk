@@ -3,13 +3,18 @@ import Foundation
 public final class MapirAccountManager {
     public static var shared: MapirAccountManager = .init()
 
-    public private(set) var accessToken: String
+    public private(set) var apiKey: String?
     public private(set) var isAuthorized: Bool
 
     public static let unauthorizedNotification: Notification.Name = .init("UnauthorizedAPIKeyNotification")
 
     private init() {
-        self.accessToken = MapirAccountManager.accessToken()
+        self.apiKey = nil
+        self.isAuthorized = false
+    }
+
+    public func set(apiKey: String) {
+        self.apiKey = apiKey
         self.isAuthorized = true
     }
 
@@ -25,9 +30,5 @@ public final class MapirAccountManager {
             """
 
         print(notice)
-    }
-
-    private static func accessToken() -> String {
-        (Bundle.main.object(forInfoDictionaryKey: "MapirAPIKey")! as! String).trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }

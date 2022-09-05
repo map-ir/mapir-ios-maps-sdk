@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C02D7ACE28C69A9100F0A358 /* MapirMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C02D7ACD28C69A9100F0A358 /* MapirMapKit */; };
 		C0F445C628C695850082A050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F445C528C695850082A050 /* AppDelegate.swift */; };
 		C0F445C828C695850082A050 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F445C728C695850082A050 /* SceneDelegate.swift */; };
 		C0F445CA28C695850082A050 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F445C928C695850082A050 /* ViewController.swift */; };
 		C0F445CD28C695850082A050 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F445CB28C695850082A050 /* Main.storyboard */; };
 		C0F445CF28C695880082A050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0F445CE28C695880082A050 /* Assets.xcassets */; };
 		C0F445D228C695880082A050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F445D028C695880082A050 /* LaunchScreen.storyboard */; };
+		C0F445DD28C697880082A050 /* MapirMapKit in Resources */ = {isa = PBXBuildFile; fileRef = C0F445DC28C697880082A050 /* MapirMapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,7 @@
 		C0F445CE28C695880082A050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0F445D128C695880082A050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0F445D328C695880082A050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0F445DC28C697880082A050 /* MapirMapKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MapirMapKit; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +34,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C02D7ACE28C69A9100F0A358 /* MapirMapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C02D7ACC28C69A9100F0A358 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C0F445B928C695850082A050 = {
 			isa = PBXGroup;
 			children = (
+				C0F445DC28C697880082A050 /* MapirMapKit */,
 				C0F445C428C695850082A050 /* SampleApp */,
 				C0F445C328C695850082A050 /* Products */,
+				C02D7ACC28C69A9100F0A358 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +90,16 @@
 				C0F445BE28C695850082A050 /* Sources */,
 				C0F445BF28C695850082A050 /* Frameworks */,
 				C0F445C028C695850082A050 /* Resources */,
+				C02D7ACF28C6A43C00F0A358 /* Insert Map.ir API Key */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SampleApp;
+			packageProductDependencies = (
+				C02D7ACD28C69A9100F0A358 /* MapirMapKit */,
+			);
 			productName = SampleApp;
 			productReference = C0F445C228C695850082A050 /* SampleApp.app */;
 			productType = "com.apple.product-type.application";
@@ -127,11 +144,34 @@
 			files = (
 				C0F445D228C695880082A050 /* LaunchScreen.storyboard in Resources */,
 				C0F445CF28C695880082A050 /* Assets.xcassets in Resources */,
+				C0F445DD28C697880082A050 /* MapirMapKit in Resources */,
 				C0F445CD28C695850082A050 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C02D7ACF28C6A43C00F0A358 /* Insert Map.ir API Key */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}",
+			);
+			name = "Insert Map.ir API Key";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -o pipefail\n\nMAPIR_API_KEY_FILE=~/.mapir\n\nif [ ! -f \"$MAPIR_API_KEY_FILE\" ]; then\n    echo \"Map.ir API key not found. API key needs to be located in a text file at ~/.mapir\"\n    exit 1\nfi\n\nMAPIR_API_KEY=$(cat ~/.mapir)\n\nplutil -insert MapirAPIKey -string $MAPIR_API_KEY ${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C0F445BE28C695850082A050 /* Sources */ = {
@@ -358,6 +398,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C02D7ACD28C69A9100F0A358 /* MapirMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MapirMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C0F445BA28C695850082A050 /* Project object */;
 }

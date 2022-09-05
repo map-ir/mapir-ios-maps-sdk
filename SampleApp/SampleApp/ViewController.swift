@@ -6,14 +6,21 @@
 //
 
 import UIKit
+import MapirMapKit
+
+struct MapirAttributionURLOpener: AttributionURLOpener {
+    func openAttributionURL(_ url: URL) {}
+}
 
 class ViewController: UIViewController {
+    var mapView: MapirMapView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        mapView = MapirMapView(frame: view.bounds, mapInitOptions: .mapirCompatible(), urlOpener: MapirAttributionURLOpener())
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+        self.view.addSubview(mapView)
     }
-
-
 }
 

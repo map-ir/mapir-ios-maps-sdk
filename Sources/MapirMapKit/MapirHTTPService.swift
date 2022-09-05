@@ -1,14 +1,10 @@
 import Foundation
 import MapboxMaps
 
-public final class MapirHTTPService: NSObject {
+final class MapirHTTPService: NSObject {
     private var session: URLSession = .shared
 
     private var downloadStatuses: [Int: (DownloadOptions, DownloadStatusCallback)] = [:]
-
-    public static func register() {
-        HttpServiceFactory.setUserDefinedForCustom(MapirHTTPService())
-    }
 
     override init() {
         super.init()
@@ -25,7 +21,7 @@ extension MapirHTTPService: HttpServiceInterface {
         ]
     }
 
-    public func request(for request: HttpRequest, callback: @escaping HttpResponseCallback) -> UInt64 {
+    func request(for request: HttpRequest, callback: @escaping HttpResponseCallback) -> UInt64 {
         let url = URL(string: request.url)!
         var urlRequest = URLRequest(url: url)
 
@@ -44,7 +40,6 @@ extension MapirHTTPService: HttpServiceInterface {
                 let requestError = HttpRequestError(type: .otherError, message: error.localizedDescription)
                 result = .failure(requestError)
             } else if let response = response as? HTTPURLResponse, let data = data {
-
                 var headers: [String: String] = [:]
                 for (key, value) in response.allHeaderFields {
                     guard let key = key as? String,
@@ -56,7 +51,7 @@ extension MapirHTTPService: HttpServiceInterface {
                 }
 
                 if url.isHostedByMapir() {
-                    if response.statusCode == 403 {
+                    if response.statusCode == 401 {
                         MapirAccountManager.shared.receivedUnauthorizedStatusCode()
                     }
                 }
@@ -78,7 +73,7 @@ extension MapirHTTPService: HttpServiceInterface {
     }
 
 
-    public func download(for options: DownloadOptions, callback: @escaping DownloadStatusCallback) -> UInt64 {
+    func download(for options: DownloadOptions, callback: @escaping DownloadStatusCallback) -> UInt64 {
         let request = options.request
         let url = URL(string: request.url)!
         var urlRequest = URLRequest(url: url)
@@ -110,7 +105,7 @@ extension MapirHTTPService: HttpServiceInterface {
         return UInt64(task.taskIdentifier)
     }
 
-    private func handleDownloadResponse(url: URL, options: DownloadOptions, location: URL?, response: URLResponse?, error: Error?) -> DownloadStatus {
+    private func handleDownloadResponse(taskIdentifier: Int, url: URL, options: DownloadOptions, location: URL?, response: URLResponse?, error: Error?) -> DownloadStatus {
         let result: Result<HttpResponseData, HttpRequestError>
         let downloadState: DownloadState
         var downloadError: DownloadError?
@@ -161,7 +156,7 @@ extension MapirHTTPService: HttpServiceInterface {
         }
 
         let response = DownloadStatus(
-            downloadId: UInt64(1),
+            downloadId: UInt64(taskIdentifier),
             state: downloadState,
             error: downloadError,
             totalBytes: UInt64(response?.expectedContentLength ?? 0),
@@ -174,7 +169,7 @@ extension MapirHTTPService: HttpServiceInterface {
         return response
     }
 
-    public func cancelRequest(forId id: UInt64, callback: @escaping ResultCallback) {
+    func cancelRequest(forId id: UInt64, callback: @escaping ResultCallback) {
         session.getAllTasks { tasks in
             if let task = tasks.first(where: { $0.taskIdentifier == UInt(id) }) {
                 task.cancel()
@@ -185,21 +180,21 @@ extension MapirHTTPService: HttpServiceInterface {
         }
     }
 
-    public func setInterceptorForInterceptor(_ interceptor: HttpServiceInterceptorInterface?) {}
+    func setInterceptorForInterceptor(_ interceptor: HttpServiceInterceptorInterface?) {}
 
-    public func setMaxRequestsPerHostForMax(_ max: UInt8) {
+    func setMaxRequestsPerHostForMax(_ max: UInt8) {
         let configuration = URLSessionConfiguration.default
         configuration.httpMaximumConnectionsPerHost = Int(max)
         session = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
     }
 
-    public func supportsKeepCompression() -> Bool {
+    func supportsKeepCompression() -> Bool {
         false
     }
 }
 
 extension MapirHTTPService: URLSessionDelegate {
-    public func urlSession(
+    func urlSession(
         _ session: URLSession,
         task: URLSessionTask,
         didCompleteWithError error: Error?
@@ -213,13 +208,20 @@ extension MapirHTTPService: URLSessionDelegate {
             return
         }
 
-        let result = handleDownloadResponse(url: url, options: options, location: nil, response: downloadTask.response, error: error)
+        let result = handleDownloadResponse(
+            taskIdentifier: downloadTask.taskIdentifier,
+            url: url,
+            options: options,
+            location: nil,
+            response: downloadTask.response,
+            error: error
+        )
         callback(result)
     }
 }
 
 extension MapirHTTPService: URLSessionDownloadDelegate {
-    public func urlSession(
+    func urlSession(
         _ session: URLSession,
         downloadTask: URLSessionDownloadTask,
         didFinishDownloadingTo location: URL
@@ -232,11 +234,18 @@ extension MapirHTTPService: URLSessionDownloadDelegate {
             return
         }
 
-        let result = handleDownloadResponse(url: url, options: options, location: location, response: downloadTask.response, error: nil)
+        let result = handleDownloadResponse(
+            taskIdentifier: downloadTask.taskIdentifier,
+            url: url,
+            options: options,
+            location: location,
+            response: downloadTask.response,
+            error: nil
+        )
         callback(result)
     }
 
-    public func urlSession(
+    func urlSession(
         _ session: URLSession,
         downloadTask: URLSessionDownloadTask,
         didResumeAtOffset fileOffset: Int64,
@@ -245,7 +254,7 @@ extension MapirHTTPService: URLSessionDownloadDelegate {
 
     }
 
-    public func urlSession(
+    func urlSession(
         _ session: URLSession,
         downloadTask: URLSessionDownloadTask,
         didWriteData bytesWritten: Int64,
