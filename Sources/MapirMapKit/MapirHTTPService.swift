@@ -4,10 +4,15 @@ import MapboxMaps
 public final class MapirHTTPService: NSObject {
     private var session: URLSession = .shared
 
-    private var downloadTaskCallbacks: [Int: DownloadStatusCallback] = [:]
+    private var downloadStatuses: [Int: (DownloadOptions, DownloadStatusCallback)] = [:]
 
     public static func register() {
         HttpServiceFactory.setUserDefinedForCustom(MapirHTTPService())
+    }
+
+    override init() {
+        super.init()
+        session = URLSession(configuration: .default, delegate: self, delegateQueue: .current)
     }
 }
 
@@ -94,25 +99,15 @@ extension MapirHTTPService: HttpServiceInterface {
 
         let task: URLSessionDownloadTask
         if options.isResume, let url = URL(string: options.localPath), let data = try? Data(contentsOf: url) {
-            task = session.downloadTask(withResumeData: data) { [weak self] location, response, error in
-                guard let self = self else { return }
-                let result = self.handleDownloadResponse(url: url, options: options, location: location, response: response, error: error)
-                callback(result)
-            }
+            task = session.downloadTask(withResumeData: data)
         } else {
-            task = session.downloadTask(with: urlRequest) { [weak self] location, response, error in
-                guard let self = self else { return }
-                let result = self.handleDownloadResponse(url: url, options: options, location: location, response: response, error: error)
-                self.downloadTaskCallbacks.removeValue(forKey: task.taskIdentifier)
-                callback(result)
-            }
+            task = session.downloadTask(with: urlRequest)
         }
 
         task.resume()
-        downloadTaskCallbacks[task.taskIdentifier] = callback
+        downloadStatuses[task.taskIdentifier] = (options, callback)
 
         return UInt64(task.taskIdentifier)
-
     }
 
     private func handleDownloadResponse(url: URL, options: DownloadOptions, location: URL?, response: URLResponse?, error: Error?) -> DownloadStatus {
@@ -204,22 +199,59 @@ extension MapirHTTPService: HttpServiceInterface {
 }
 
 extension MapirHTTPService: URLSessionDelegate {
-    public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+    public func urlSession(
+        _ session: URLSession,
+        task: URLSessionTask,
+        didCompleteWithError error: Error?
+    ) {
+        guard let downloadTask = task as? URLSessionDownloadTask else { return }
+        defer { downloadStatuses.removeValue(forKey: downloadTask.taskIdentifier) }
 
+        guard let (options, callback) = downloadStatuses[downloadTask.taskIdentifier],
+              let url = task.currentRequest?.url
+        else {
+            return
+        }
+
+        let result = handleDownloadResponse(url: url, options: options, location: nil, response: downloadTask.response, error: error)
+        callback(result)
     }
 }
 
 extension MapirHTTPService: URLSessionDownloadDelegate {
-    public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        let result = handleDownloadResponse(url: url, options: <#T##DownloadOptions#>, location: <#T##URL?#>, response: <#T##URLResponse?#>, error: <#T##Error?#>)
+    public func urlSession(
+        _ session: URLSession,
+        downloadTask: URLSessionDownloadTask,
+        didFinishDownloadingTo location: URL
+    ) {
+        defer { downloadStatuses.removeValue(forKey: downloadTask.taskIdentifier) }
+
+        guard let (options, callback) = downloadStatuses[downloadTask.taskIdentifier],
+              let url = downloadTask.currentRequest?.url
+        else {
+            return
+        }
+
+        let result = handleDownloadResponse(url: url, options: options, location: location, response: downloadTask.response, error: nil)
+        callback(result)
     }
 
-    public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64) {
+    public func urlSession(
+        _ session: URLSession,
+        downloadTask: URLSessionDownloadTask,
+        didResumeAtOffset fileOffset: Int64,
+        expectedTotalBytes: Int64
+    ) {
 
     }
 
-    public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-        guard let callback = downloadTaskCallbacks[downloadTask.taskIdentifier] else { return }
-        let downloadStatus = DownloadStatus(
+    public func urlSession(
+        _ session: URLSession,
+        downloadTask: URLSessionDownloadTask,
+        didWriteData bytesWritten: Int64,
+        totalBytesWritten: Int64,
+        totalBytesExpectedToWrite: Int64
+    ) {
+
     }
 }
