@@ -35,8 +35,4 @@ public class MapirMapView: MapView {
             urlOpener: urlOpener
         )
     }
-
-    func sag() {
-//        HttpServiceFactory.setUserDefinedForCustom()
-    }
 }
