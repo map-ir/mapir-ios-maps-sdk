@@ -11,11 +11,13 @@ import MapirMapKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "MapirAPIKey") as? String else {
-            fatalError(#"Unable to locate key named "MapirAPIKey" in Info.plist file."#)
+        if let apiKey = Bundle.main.object(forInfoDictionaryKey: "MapirAPIKey") as? String {
+            MapirAccountManager.shared.set(apiKey: apiKey)
+        } else {
+            print(#"You need to specify a Map.ir API key in the bottom function. If you don't have one, please checkout "https://help-mapir.imber.ir/fa/post/60963c70c156fb9c4d587a1b""#)
+            // MapirAccountManager.shared.set(apiKey: <YOUR_API_KEY>)
         }
 
-        MapirAccountManager.shared.set(apiKey: apiKey)
         MapirMapKit.registerHTTPService()
 
         return true

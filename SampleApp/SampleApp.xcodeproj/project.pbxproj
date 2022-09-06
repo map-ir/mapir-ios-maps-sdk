@@ -170,7 +170,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -o pipefail\n\nMAPIR_API_KEY_FILE=~/.mapir\n\nif [ ! -f \"$MAPIR_API_KEY_FILE\" ]; then\n    echo \"Map.ir API key not found. API key needs to be located in a text file at ~/.mapir\"\n    exit 1\nfi\n\nMAPIR_API_KEY=$(cat ~/.mapir)\n\nplutil -insert MapirAPIKey -string $MAPIR_API_KEY ${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}\n";
+			shellScript = "MAPIR_API_KEY_FILE=~/.mapir\n\nif [ ! -f \"$MAPIR_API_KEY_FILE\" ]; then\n    echo \"Map.ir API key not found. API key needs to be located in a text file at ~/.mapir or pass it in `MapirAccountManager.shared.set(apiKey:)`\"\n    exit 0\nfi\n\nMAPIR_API_KEY=$(cat ~/.mapir)\n\nplutil -insert MapirAPIKey -string $MAPIR_API_KEY ${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
