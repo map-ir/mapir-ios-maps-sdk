@@ -18,6 +18,10 @@ let package = Package(
             name: "MapirMapKit",
             dependencies: [
                 .product(name: "MapboxMaps", package: "mapbox-maps-ios")
+            ],
+            resources: [
+                .process("Resources/map-logo-light.pdf"),
+                .process("Resources/map-logo-dark.pdf"),
             ]),
         .testTarget(
             name: "MapirMapKitTests",

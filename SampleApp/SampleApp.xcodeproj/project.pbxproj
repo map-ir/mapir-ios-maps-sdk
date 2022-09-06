@@ -154,6 +154,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		C02D7ACF28C6A43C00F0A358 /* Insert Map.ir API Key */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
